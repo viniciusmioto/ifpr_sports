@@ -1,107 +1,91 @@
 import 'package:flutter/material.dart';
+import 'package:ifsports/pages/championships_page.dart';
+import 'package:ifsports/pages/events-page.dart';
+import 'package:ifsports/pages/news-page.dart';
+import 'package:ifsports/pages/training-page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  PageController _pageController = PageController();
+  List<Widget> _screens = [NewsPage(), TrainingPage(), EventsPage(), ChampionshipsPage()];
+
+  int _selectedIndex = 0;
+
+  void _onPageChanged(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  void _onItemTapped(int selectedIndex) {
+    _pageController.jumpToPage(selectedIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: Column(
-          children: <Widget>[
-             Padding(
-              padding: const EdgeInsets.only(top: 60.0),
-              child: Container(
-                width: 100,
-                height: 100,
-                child: Image.asset("assets/profile.png")
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 15.0),
-              child: Container(
-                child: FlatButton(
-                  child: 
-                  Text("Conta",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                onPressed: () => {},
-                ), 
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 15.0),
-              child: Container(
-                child: FlatButton(
-                  child: 
-                  Text("Times",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                onPressed: () => {},
-                ), 
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 15.0),
-              child: Container(
-                child: FlatButton(
-                  child: 
-                  Text("Logout",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                onPressed: () => {},
-                ), 
-              ),
-            ),
-          ],
-        ),
+      body: PageView(
+        controller: _pageController,
+        children: _screens,
+        onPageChanged: _onPageChanged,
+        physics: NeverScrollableScrollPhysics(),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        onTap: _onItemTapped,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text(""),
-            backgroundColor: Colors.black,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.fitness_center),
-            title: Text(""),
-            backgroundColor: Colors.black,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
-            title: Text(""),
-            backgroundColor: Colors.black,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.stars),
-            title: Text(""),
-            backgroundColor: Colors.black,
-          ),
-        ],
-      ),
-      appBar: AppBar(
-        backgroundColor: Colors.teal,
-        title: Text(
-          "IFPR SPORTS",
-          textAlign: TextAlign.center,
-        ),
-        actions: <Widget>[
-          Container(
-            width: 60,
-            child: FlatButton(
-              child: Icon(
-                Icons.search,
-                color: Colors.white70,
+            icon: Icon(
+              Icons.home,
+              color: _selectedIndex == 0 ? Colors.teal : Colors.grey,
+            ),
+            title: Text(
+              "home",
+              style: TextStyle(
+                color: _selectedIndex == 0 ? Colors.teal : Colors.grey,
               ),
-              onPressed: () => {},
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.fitness_center,
+              color: _selectedIndex == 1 ? Colors.teal : Colors.grey,
+            ),
+            title: Text(
+              "treinos",
+              style: TextStyle(
+                color: _selectedIndex == 1 ? Colors.teal : Colors.grey,
+              ),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.calendar_today,
+              color: _selectedIndex == 2 ? Colors.teal : Colors.grey,
+            ),
+            title: Text(
+              "eventos",
+              style: TextStyle(
+                color: _selectedIndex == 2 ? Colors.teal : Colors.grey,
+              ),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.stars,
+              color: _selectedIndex == 3 ? Colors.teal : Colors.grey,
+            ),
+            title: Text(
+              "competições",
+              style: TextStyle(
+                color: _selectedIndex == 3 ? Colors.teal : Colors.grey,
+              ),
             ),
           ),
         ],
