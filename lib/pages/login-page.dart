@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ifsports/pages/home-page.dart';
 import 'package:ifsports/pages/reset-password.dart';
 import 'package:ifsports/pages/signup-page.dart';
 
@@ -110,7 +111,14 @@ class LoginPage extends StatelessWidget {
                         Icon(Icons.account_circle),
                       ],
                     ),
-                    onPressed: () => {},
+                    onPressed: () {
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePage(),
+                      ),
+                    );
+                    },
                   ),
                 ),
               ),
