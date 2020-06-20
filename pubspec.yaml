@@ -57,6 +57,23 @@ flutter:
     - assets/password.png
     - assets/conta.png
     - assets/profile.png
+    - assets/futsal.png
+    - assets/apito.png
+    - assets/atletismo.png
+    - assets/basket.png
+    - assets/coletivo.png
+    - assets/competicao.png
+    - assets/eventos.png
+    - assets/fisico.png
+    - assets/futebol.png
+    - assets/handball.png
+    - assets/pingpong.png
+    - assets/tatico.png
+    - assets/tenis.png
+    - assets/time.png
+    - assets/treinos.png
+    - assets/volley.png
+    - assets/xadrez.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

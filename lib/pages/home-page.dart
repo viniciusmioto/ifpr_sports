@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.calendar_today,
+              Icons.event_available,
               color: _selectedIndex == 2 ? Colors.teal : Colors.grey,
             ),
             title: Text(

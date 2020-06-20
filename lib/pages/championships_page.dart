@@ -5,26 +5,39 @@ class ChampionshipsPage extends StatefulWidget {
   _ChampionshipsPageState createState() => _ChampionshipsPageState();
 }
 
-class _ChampionshipsPageState extends State<ChampionshipsPage> {
+class _ChampionshipsPageState extends State<ChampionshipsPage>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("COMPETIÇÕES"),
+        leading: Icon(
+          Icons.flag,
+        ),
       ),
       body: ListView.builder(
-          itemCount: 50,
+          itemCount: 20,
           itemBuilder: (context, index) {
             return Card(
-              color: index % 2 == 0 ? Colors.blue : null,
+              color: index % 2 == 0 ? Colors.deepPurple : null,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: <Widget>[
+                    SizedBox(
+                      height: 60,
+                      child: Image.asset("assets/competicao.png"),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Text(
                       'COMPETIÇÃO',
                       style: TextStyle(
-                          color: index % 2 == 0 ? Colors.white : Colors.blue,
+                          color:
+                              index % 2 == 0 ? Colors.white : Colors.deepPurple,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
@@ -48,4 +61,7 @@ class _ChampionshipsPageState extends State<ChampionshipsPage> {
           }),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

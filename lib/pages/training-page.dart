@@ -5,15 +5,20 @@ class TrainingPage extends StatefulWidget {
   _TrainingPageState createState() => _TrainingPageState();
 }
 
-class _TrainingPageState extends State<TrainingPage> {
+class _TrainingPageState extends State<TrainingPage>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("TREINOS"),
+        leading: Icon(
+          Icons.access_time,
+        ),
       ),
       body: ListView.builder(
-          itemCount: 50,
+          itemCount: 9,
           itemBuilder: (context, index) {
             return Card(
               color: index % 2 == 0 ? Colors.green : null,
@@ -21,16 +26,20 @@ class _TrainingPageState extends State<TrainingPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: <Widget>[
+                    SizedBox(
+                      height: 60,
+                      child: Image.asset("assets/futsal.png"),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Text(
-                      'TREINO',
+                      'FUTSAL',
                       style: TextStyle(
                           color: index % 2 == 0 ? Colors.white : Colors.green,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 10,
                     ),
                     Text(
                       'Os treinos de sexta começaram 10 min mais cedo, ou seja, às 13h20. ' +
@@ -48,4 +57,7 @@ class _TrainingPageState extends State<TrainingPage> {
           }),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

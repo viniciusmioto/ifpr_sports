@@ -5,26 +5,38 @@ class EventsPage extends StatefulWidget {
   _EventsPageState createState() => _EventsPageState();
 }
 
-class _EventsPageState extends State<EventsPage> {
+class _EventsPageState extends State<EventsPage>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("EVENTOS"),
+        leading: Icon(
+          Icons.event_note,
+        ),
       ),
       body: ListView.builder(
-          itemCount: 50,
+          itemCount: 20,
           itemBuilder: (context, index) {
             return Card(
-              color: index % 2 == 0 ? Colors.deepPurpleAccent : null,
+              color: index % 2 == 0 ? Colors.blue : null,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: <Widget>[
+                    SizedBox(
+                      height: 60,
+                      child: Image.asset("assets/eventos.png"),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Text(
                       'EVENTO',
                       style: TextStyle(
-                          color: index % 2 == 0 ? Colors.white : Colors.deepPurple,
+                          color: index % 2 == 0 ? Colors.white : Colors.blue,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
@@ -48,4 +60,7 @@ class _EventsPageState extends State<EventsPage> {
           }),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
