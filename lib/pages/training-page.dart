@@ -19,33 +19,69 @@ class _TrainingPageState extends State<TrainingPage>
       ),
       body: ListView(
         children: <Widget>[
-          PostMessages(
-            "https://images.pexels.com/photos/1543924/pexels-photo-1543924.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-            'Prof. Tite',
-            '20/06/2020- 12:37',
-            'Atenção ATLETAS!\n' +
-                'Reforçando o aviso dos horários de treinos dessa semana!\n' +
-                'Os treinos de sexta serão realizados 10 minutos mais cedo, ou seja, o novo horário é 13:20',
+          SportsDescriptions(
+            'FUTSAL',
+            'assets/futsal.png',
+            'Segunda, Quarta, Sexta, Sábado;',
+            '13h30 - 15h30;',
+            'Ginásio.',
+            Colors.blue,
           ),
-          PostMessages(
-            "https://images.pexels.com/photos/1543924/pexels-photo-1543924.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-            'Marta',
-            '21/04/2020- 14:30',
-            'Pessoal, vamos começar o aquecimento para o jogo-treino às 8:20, na quadra! Lembrem de trazer algum documento com foto.',
+          SportsDescriptions(
+            'VÔLEI',
+            'assets/volley.png',
+            'Terça, Quinta e Sábado;',
+            '15h30 - 17h40;',
+            'Ginásio.',
+            Colors.deepPurple,
           ),
-          PostMessages(
-            "https://images.pexels.com/photos/1543924/pexels-photo-1543924.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-            'Neymar',
-            '20/04/2020- 19:30',
-            'O amistoso foi confirmado para quarta-feira da semana que vem, dia 16/08, confirmem a presença de vocês para montarmos o time',
+          SportsDescriptions(
+            'HANDEBOL',
+            'assets/handball.png',
+            'Terça e Sexta;',
+            '9h30 - 11h45;',
+            'Ginásio.',
+            Colors.green,
           ),
-          PostMessages(
-            "https://images.pexels.com/photos/1543924/pexels-photo-1543924.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-            'Prof. Tite',
-            '19/06/2020- 09:47',
-            'Treino Extra!\n' +
-                'Considerando a proximidade dos Jogos, foi decidido que fazeremos um treino extra nessa semana.\n' +
-                'Definimos que quinta-feira (dia 25/06) faremos um treino às 15h30... por favor venham!',
+          SportsDescriptions(
+            'TÊNIS',
+            'assets/tenis.png',
+            'Terça, Quinta e Sábado',
+            '14h30 - 16h30',
+            'Quadra de Tênis - Bloco Azul.',
+            Colors.orange,
+          ),
+          SportsDescriptions(
+            'FUTEBOL',
+            'assets/futebol.png',
+            'Sábados',
+            '7h30 - 9h30',
+            'Campo de Futebol.',
+            Colors.lime,
+          ),
+          SportsDescriptions(
+            'BASQUETE',
+            'assets/basket.png',
+            'Segunda e Quarta',
+            '7h30 - 9h30',
+            'Ginásio.',
+            Colors.deepOrange,
+          ),
+          SportsDescriptions(
+            'TÊNIS DE MESA',
+            'assets/pingpong.png',
+            'Terça e Quinra',
+            '10h20 - 11h30',
+            'Mesas do Pátio.',
+            Colors.blueAccent,
+          ),
+          SportsDescriptions(
+            'XADREZ',
+            'assets/xadrez.png',
+            'Segunda à Sexta',
+            '7h30 - 9h30',
+            'Mesas do Pátio.',
+            Colors.blueGrey,
           ),
         ],
       ),
@@ -56,54 +92,62 @@ class _TrainingPageState extends State<TrainingPage>
   bool get wantKeepAlive => true;
 }
 
-class PostMessages extends StatelessWidget {
-  String urlImage;
-  String user;
-  String time;
-  String message;
+class SportsDescriptions extends StatelessWidget {
+  final String modalidade;
+  final String icone;
+  final String dias;
+  final String horario;
+  final String local;
+  final Color color;
 
-  PostMessages(this.urlImage, this.user, this.time, this.message);
+  SportsDescriptions(this.modalidade, this.icone, this.dias, this.horario,
+      this.local, this.color);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          ListTile(
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage(urlImage),
+    return Container(
+      child: Card(
+        color: color,
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(
+                height: 80,
+                width: 80,
+                child: Image.asset(icone),
+              ),
             ),
-            title: Text(user),
-            subtitle: Text(time),
-            trailing: Icon(Icons.more_vert),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              child: Text(
-                message,
-                style: TextStyle(
-                  fontSize: 16,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                child: Text(
+                  modalidade,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ),
-          ),
-          ButtonTheme(
-            child: ButtonBar(
-              children: <Widget>[
-                FlatButton(
-                  child: Icon(Icons.star),
-                  onPressed: () {},
-                ),
-                FlatButton(
-                  child: Icon(Icons.flag),
-                  onPressed: () {},
-                )
-              ],
+            Divider(
+              height: 20,
+              thickness: 5,
             ),
-          ),
-        ],
+            Text(
+              '\nDIAS: ' + dias + '\nHORÁRIO: ' + horario + '\nLOCAL: ' + local,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            )
+          ],
+        ),
       ),
     );
   }
