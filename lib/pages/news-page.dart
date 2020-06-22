@@ -23,7 +23,44 @@ class _NewsPageState extends State<NewsPage>
           ),
         ],
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: <Color>[Colors.green, Colors.greenAccent],
+                ),
+              ),
+              child: Container(
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(
+                      height: 100,
+                      width: 100,
+                      child: Image.asset("assets/logo.png"),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top:4.0),
+                      child: Text(
+                        'SPORTIF',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            CustomListTile(Icons.person, 'Perfil', () => {}),
+            CustomListTile(Icons.settings, 'Configurações', () => {}),
+            CustomListTile(Icons.notifications, 'Notificaçoes', () => {}),
+            CustomListTile(Icons.exit_to_app, 'Logout', () => {}),
+          ],
+        ),
+      ),
       body: Container(
         color: Colors.white,
         child: ListView(
@@ -85,15 +122,62 @@ Widget cardItem() {
                 onPressed: () {},
               ),
               FlatButton(
-                child: Icon(Icons.favorite),
-                onPressed: () {
-                },
+                child: Icon(Icons.flag),
+                onPressed: () {},
               )
-
             ],
           ),
         ),
       ],
     ),
   );
+}
+
+class CustomListTile extends StatelessWidget {
+  IconData icon;
+  String text;
+  Function onTap;
+
+  CustomListTile(this.icon, this.text, this.onTap);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: InkWell(
+        splashColor: Colors.green,
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: Colors.grey.shade300,
+              ),
+            ),
+          ),
+          height: 40,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: <Widget>[
+                  Icon(icon),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      text,
+                      style: TextStyle(
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Icon(Icons.arrow_right),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
