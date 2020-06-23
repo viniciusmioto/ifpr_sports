@@ -119,11 +119,14 @@ class ChampionshipsInfo extends StatelessWidget {
               height: 20,
               thickness: 5,
             ),
-            Text(
-              '\nDATA: ' + data + '\nLOCAL: ' + local,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                '\nDATA: ' + data + '\nLOCAL: ' + local,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
               ),
             ),
             SizedBox(

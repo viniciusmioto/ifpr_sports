@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ifsports/pages/login-page.dart';
 
 class NewsPage extends StatefulWidget {
   NewsPage({Key key}) : super(key: key);
@@ -41,7 +42,7 @@ class _NewsPageState extends State<NewsPage>
                       child: Image.asset("assets/logo.png"),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top:4.0),
+                      padding: const EdgeInsets.only(top: 4.0),
                       child: Text(
                         'SPORTIF',
                         style: TextStyle(
@@ -54,10 +55,34 @@ class _NewsPageState extends State<NewsPage>
                 ),
               ),
             ),
-            CustomListTile(Icons.person, 'Perfil', () => {}),
-            CustomListTile(Icons.settings, 'Configurações', () => {}),
-            CustomListTile(Icons.notifications, 'Notificaçoes', () => {}),
-            CustomListTile(Icons.exit_to_app, 'Logout', () => {}),
+            CustomListTile(
+              Icons.person,
+              'Perfil',
+              () => {},
+            ),
+            CustomListTile(
+              Icons.people,
+              'Time',
+              () => {},
+            ),
+            CustomListTile(
+              Icons.notifications,
+              'Notificaçoes',
+              () => {},
+            ),
+            CustomListTile(
+              Icons.settings,
+              'Configurações',
+              () => {},
+            ),
+            CustomListTile(Icons.exit_to_app, 'Logout', () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginPage(),
+                ),
+              );
+            }),
           ],
         ),
       ),
@@ -67,14 +92,14 @@ class _NewsPageState extends State<NewsPage>
             "https://images.pexels.com/photos/804009/pexels-photo-804009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             'Prof. Bernardinho',
             '21/06/2020 - 12:37',
-            'Atenção ALUNOS!' +
-            'Abriu o edital de inscrição para o BOLSA ATLETA, fiquem atentos aos prazos!!!',
+            'Atenção ALUNOS!\n' +
+                'Abriu o edital de inscrição para o BOLSA ATLETA, fiquem atentos aos prazos e confiram a página de eventos!',
           ),
           PostMessages(
             "https://images.pexels.com/photos/1543924/pexels-photo-1543924.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
             'Prof. Tite',
-            '21/06/2020 - 12:37',
-            'Atenção ATLETAS de Futebol!\n' +
+            '21/06/2020 - 17:37',
+            'Boa Tarde ATLETAS de Futebol!\n' +
                 'Reforçando o aviso dos horários de treinos dessa semana.\n' +
                 'Os treinos de sexta serão realizados 10 minutos mais cedo, ou seja, o novo horário é 13:20.',
           ),
@@ -83,7 +108,7 @@ class _NewsPageState extends State<NewsPage>
             'Marta',
             '19/05/2020 - 14:30',
             'Futsal \n' +
-            'Pessoal, vamos começar o aquecimento para o jogo-treino às 8:20, na quadra! Lembrem de trazer algum documento com foto.',
+                'Pessoal, vamos começar o aquecimento para o jogo-treino às 8:20, na quadra! Lembrem de trazer algum documento com foto.',
           ),
           PostMessages(
             "https://images.pexels.com/photos/1432039/pexels-photo-1432039.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
@@ -104,8 +129,8 @@ class _NewsPageState extends State<NewsPage>
             "https://images.pexels.com/photos/220383/pexels-photo-220383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             'Stephen Curry',
             '20/04/2020 - 19:30',
-            'Amistoso BASKETBALL\n' 
-            + 'O amistoso foi confirmado para quarta-feira da semana que vem, dia 16/08, confirmem a presença de vocês para montarmos o time',
+            'Amistoso BASKETBALL\n' +
+                'O amistoso foi confirmado para quarta-feira da semana que vem, dia 16/08, confirmem a presença de vocês para montarmos o time',
           ),
         ],
       ),
@@ -120,6 +145,7 @@ class _NewsPageState extends State<NewsPage>
   @override
   bool get wantKeepAlive => true;
 }
+
 class PostMessages extends StatelessWidget {
   final String urlImage;
   final String user;
@@ -158,7 +184,10 @@ class PostMessages extends StatelessWidget {
             child: ButtonBar(
               children: <Widget>[
                 FlatButton(
-                  child: Icon(Icons.star, color: Colors.greenAccent,),
+                  child: Icon(
+                    Icons.star,
+                    color: Colors.greenAccent,
+                  ),
                   onPressed: () {},
                 )
               ],

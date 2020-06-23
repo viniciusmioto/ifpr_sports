@@ -17,50 +17,96 @@ class _EventsPageState extends State<EventsPage>
           Icons.event_note,
         ),
       ),
-      body: ListView.builder(
-          itemCount: 20,
-          itemBuilder: (context, index) {
-            return Card(
-              color: index % 2 == 0 ? Colors.blue : null,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(
-                      height: 60,
-                      child: Image.asset("assets/eventos.png"),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'EVENTO',
-                      style: TextStyle(
-                          color: index % 2 == 0 ? Colors.white : Colors.blue,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Os treinos de sexta começaram 10 min mais cedo, ou seja, às 13h20. ' +
-                          'Além disso, sábado será realizado um amistoso, ao invés do treino convencional.' +
-                          'Todos estão convidados a comparecer',
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
-                      textAlign: TextAlign.justify,
-                    )
-                  ],
-                ),
-              ),
-            );
-          }),
+      body: ListView(
+        children: <Widget>[
+          EventsInfo(
+            Colors.redAccent,
+            "assets/calendario.png",
+            "BOLSA ATLETA",
+            "As incrições para o BOLSA ATLETA estão abertas e vão até o dia 19/04.\n" + 
+            "Os documentos necessários estão descritos no edital, disponível na página do IFPR.",
+          ),
+          EventsInfo(
+            Colors.blueAccent,
+            "assets/eventos.png",
+            "DIA DO ALUNO",
+            "No dia do Aluno (11/08) serão realizados jogos e competições como o interclasse, organizados pelos estudantes.\n" + 
+            "Terá almoço ao meio-dia e lanche às 15h30.",
+          ),
+          EventsInfo(
+            Colors.deepOrange,
+            "assets/seletiva.png",
+            "CAMPEONATO DE FUTSAL",
+            "No dia 15/06 será realizado um torneio de fustal às 18h00, entre Professores e Alunos, acontecerá no ginásio.\n" + 
+            "Quem se interessar, favor avisar o professor de Educação Física.",
+          ),
+        ],
+      ),
     );
   }
 
   @override
   bool get wantKeepAlive => true;
+}
+
+class EventsInfo extends StatelessWidget {
+  final Color cor;
+  final String imagem;
+  final String assunto;
+  final String mensagem;
+
+  EventsInfo(this.cor, this.imagem, this.assunto, this.mensagem);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Card(
+        color: cor,
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(
+                height: 80,
+                width: 80,
+                child: Image.asset(imagem),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                child: Text(
+                  assunto,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+            Divider(
+              height: 20,
+              thickness: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                mensagem,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
