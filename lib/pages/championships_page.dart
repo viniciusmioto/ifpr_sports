@@ -17,51 +17,121 @@ class _ChampionshipsPageState extends State<ChampionshipsPage>
           Icons.flag,
         ),
       ),
-      body: ListView.builder(
-          itemCount: 20,
-          itemBuilder: (context, index) {
-            return Card(
-              color: index % 2 == 0 ? Colors.deepPurple : null,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(
-                      height: 60,
-                      child: Image.asset("assets/jifnacio.png"),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'COMPETIÇÃO',
-                      style: TextStyle(
-                          color:
-                              index % 2 == 0 ? Colors.white : Colors.deepPurple,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Os treinos de sexta começaram 10 min mais cedo, ou seja, às 13h20. ' +
-                          'Além disso, sábado será realizado um amistoso, ao invés do treino convencional.' +
-                          'Todos estão convidados a comparecer',
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
-                      textAlign: TextAlign.justify,
-                    )
-                  ],
-                ),
-              ),
-            );
-          }),
+      body: ListView(
+        children: <Widget>[
+          ChampionshipsInfo(
+            'JIFNACIONAL',
+            '24/11/2020',
+            'Cuiabá - MT',
+            "assets/jifnacio.png",
+            Colors.deepPurple,
+          ),
+          ChampionshipsInfo(
+            'JIFSUL',
+            '24/11/2020',
+            'Florianópolis - SC',
+            "assets/jifsul.png",
+            Colors.blue
+          ),
+          ChampionshipsInfo(
+            'JIFPR',
+            '24/11/2020',
+            'Palmas - PR',
+            "assets/jifpr.png",
+            Colors.green,
+          ),
+          ChampionshipsInfo(
+            'SELETIVA JIFSUL',
+            '24/11/2020',
+            'Porto Alegre - RS',
+            "assets/seletiva.png",
+            Colors.amber,
+          ),
+          ChampionshipsInfo(
+            'ESTATUDAIS',
+            '24/11/2020',
+            'Curitiba - PR',
+            "assets/estaduais.png",
+            Colors.indigoAccent,
+          ),
+          ChampionshipsInfo(
+            'MUNICIPAIS',
+            '24/11/2020',
+            'Colombo - PR',
+            "assets/municipais.png",
+            Colors.purple,
+          ),
+          ChampionshipsInfo(
+            'INTERCLASSE',
+            '24/11/2020',
+            'Colombo - PR',
+            "assets/interclasse.png",
+            Colors.deepOrange,
+          ),
+        ],
+      ),
     );
   }
 
   @override
   bool get wantKeepAlive => true;
+}
+
+class ChampionshipsInfo extends StatelessWidget {
+  final String competicao;
+  final String data;
+  final String local;
+  final String imagem;
+  final Color cor;
+
+  ChampionshipsInfo(this.competicao, this.data, this.local, this.imagem, this.cor);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Card(
+        color: cor,
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SizedBox(
+                height: 80,
+                width: 80,
+                child: Image.asset(imagem),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                child: Text(
+                  competicao,
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+            Divider(
+              height: 20,
+              thickness: 5,
+            ),
+            Text(
+              '\nDATA: ' + data + '\nLOCAL: ' + local,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
