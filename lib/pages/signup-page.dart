@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ifsports/pages/news-page.dart';
 
 class SignUpPage extends StatelessWidget {
   @override
@@ -101,35 +102,42 @@ class SignUpPage extends StatelessWidget {
               height: 40,
             ),
             Container(
-                height: 40,
-                alignment: Alignment.centerLeft,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.bottomLeft,
-                    end: Alignment.bottomRight,
-                    stops: [0.3, 1],
-                    colors: [
-                      Colors.greenAccent,
-                      Colors.green,
-                      ],
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(7),
-                  ),
+              height: 40,
+              alignment: Alignment.centerLeft,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.bottomRight,
+                  stops: [0.3, 1],
+                  colors: [
+                    Colors.greenAccent,
+                    Colors.green,
+                  ],
                 ),
-                child: SizedBox.expand(
-                  child: FlatButton(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text("CADASTRAR"),
-                        Icon(Icons.add_circle),
-                      ],
-                    ),
-                    onPressed: () => {},
-                  ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(7),
                 ),
               ),
+              child: SizedBox.expand(
+                child: FlatButton(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text("CADASTRAR"),
+                      Icon(Icons.add_circle),
+                    ],
+                  ),
+                  onPressed: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NewsPage(),
+                      ),
+                    ),
+                  },
+                ),
+              ),
+            ),
           ],
         ),
       ),
