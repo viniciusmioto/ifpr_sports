@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ifsports/pages/championships_page.dart';
+import 'package:ifsports/pages/championships-page.dart';
 import 'package:ifsports/pages/events-page.dart';
 import 'package:ifsports/pages/news-page.dart';
 import 'package:ifsports/pages/training-page.dart';
