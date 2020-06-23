@@ -64,6 +64,13 @@ class _NewsPageState extends State<NewsPage>
       body: ListView(
         children: <Widget>[
           PostMessages(
+            "https://images.pexels.com/photos/804009/pexels-photo-804009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            'Prof. Bernardinho',
+            '21/06/2020 - 12:37',
+            'Atenção ALUNOS!' +
+            'Abriu o edital de inscrição para o BOLSA ATLETA, fiquem atentos aos prazos!!!',
+          ),
+          PostMessages(
             "https://images.pexels.com/photos/1543924/pexels-photo-1543924.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
             'Prof. Tite',
             '21/06/2020 - 12:37',
@@ -86,7 +93,7 @@ class _NewsPageState extends State<NewsPage>
                 'Considerando as previsões do clima para terca-feria, faremos o treino no ginásio que é fechado, conto com vocés lá!',
           ),
           PostMessages(
-            "https://images.pexels.com/photos/1263426/pexels-photo-1263426.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            "https://images.pexels.com/photos/804009/pexels-photo-804009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             'Prof. Bernardinho',
             '29/04/2020 - 09:47',
             'Treino de VÔLEI extra!!!\n' +
@@ -101,6 +108,11 @@ class _NewsPageState extends State<NewsPage>
             + 'O amistoso foi confirmado para quarta-feira da semana que vem, dia 16/08, confirmem a presença de vocês para montarmos o time',
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {},
+        backgroundColor: Colors.teal,
       ),
     );
   }
@@ -142,14 +154,11 @@ class PostMessages extends StatelessWidget {
             ),
           ),
           ButtonTheme(
+            buttonColor: Colors.greenAccent,
             child: ButtonBar(
               children: <Widget>[
                 FlatButton(
-                  child: Icon(Icons.star),
-                  onPressed: () {},
-                ),
-                FlatButton(
-                  child: Icon(Icons.flag),
+                  child: Icon(Icons.star, color: Colors.greenAccent,),
                   onPressed: () {},
                 )
               ],

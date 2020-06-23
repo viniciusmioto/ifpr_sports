@@ -20,20 +20,36 @@ class _TrainingPageState extends State<TrainingPage>
       body: ListView(
         children: <Widget>[
           SportsDescriptions(
+            'ATLETISMO',
+            'assets/atletismo.png',
+            'Terça, Quinta e Sábado',
+            '7h30 - 9h30',
+            'Campo de Futebol.',
+            Colors.indigoAccent,
+          ),
+          SportsDescriptions(
+            'BASQUETE',
+            'assets/basket.png',
+            'Segunda e Quarta',
+            '7h30 - 9h30',
+            'Ginásio.',
+            Colors.deepOrange,
+          ),
+          SportsDescriptions(
+            'FUTEBOL',
+            'assets/futebol.png',
+            'Sábados',
+            '7h30 - 9h30',
+            'Campo de Futebol.',
+            Colors.lime,
+          ),
+          SportsDescriptions(
             'FUTSAL',
             'assets/futsal.png',
             'Segunda, Quarta, Sexta, Sábado;',
             '13h30 - 15h30;',
             'Ginásio.',
             Colors.blue,
-          ),
-          SportsDescriptions(
-            'VÔLEI',
-            'assets/volley.png',
-            'Terça, Quinta e Sábado;',
-            '15h30 - 17h40;',
-            'Ginásio.',
-            Colors.deepPurple,
           ),
           SportsDescriptions(
             'HANDEBOL',
@@ -49,23 +65,7 @@ class _TrainingPageState extends State<TrainingPage>
             'Terça, Quinta e Sábado',
             '14h30 - 16h30',
             'Quadra de Tênis - Bloco Azul.',
-            Colors.orange,
-          ),
-          SportsDescriptions(
-            'FUTEBOL',
-            'assets/futebol.png',
-            'Sábados',
-            '7h30 - 9h30',
-            'Campo de Futebol.',
-            Colors.lime,
-          ),
-          SportsDescriptions(
-            'BASQUETE',
-            'assets/basket.png',
-            'Segunda e Quarta',
-            '7h30 - 9h30',
-            'Ginásio.',
-            Colors.deepOrange,
+            Colors.amber,
           ),
           SportsDescriptions(
             'TÊNIS DE MESA',
@@ -76,12 +76,20 @@ class _TrainingPageState extends State<TrainingPage>
             Colors.blueAccent,
           ),
           SportsDescriptions(
+            'VÔLEI',
+            'assets/volley.png',
+            'Terça, Quinta e Sábado;',
+            '15h30 - 17h40;',
+            'Ginásio.',
+            Colors.deepPurple,
+          ),
+          SportsDescriptions(
             'XADREZ',
             'assets/xadrez.png',
             'Segunda à Sexta',
             '7h30 - 9h30',
             'Mesas do Pátio.',
-            Colors.blueGrey,
+            Colors.orange,
           ),
         ],
       ),
@@ -115,7 +123,9 @@ class SportsDescriptions extends StatelessWidget {
               child: SizedBox(
                 height: 80,
                 width: 80,
-                child: Image.asset(icone),
+                child: Image.asset(
+                  icone,
+                ),
               ),
             ),
             Padding(

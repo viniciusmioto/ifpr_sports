@@ -28,7 +28,7 @@ class _ChampionshipsPageState extends State<ChampionshipsPage>
                   children: <Widget>[
                     SizedBox(
                       height: 60,
-                      child: Image.asset("assets/competicao.png"),
+                      child: Image.asset("assets/jifnacio.png"),
                     ),
                     SizedBox(
                       height: 10,
