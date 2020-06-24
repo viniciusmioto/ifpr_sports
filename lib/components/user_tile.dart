@@ -24,7 +24,7 @@ class UserTile extends StatelessWidget {
           children: <Widget>[
             IconButton(
               icon: Icon(Icons.edit),
-              color: Colors.blueAccent,
+              color: Colors.cyan,
               onPressed: () {},
             ),
             IconButton(
