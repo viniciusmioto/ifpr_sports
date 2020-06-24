@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ifsports/pages/login-page.dart';
+import 'package:ifsports/pages/team-page.dart';
 
 class NewsPage extends StatefulWidget {
   NewsPage({Key key}) : super(key: key);
@@ -20,8 +21,11 @@ class _NewsPageState extends State<NewsPage>
         title: Text('SPORTIF'),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 10.0),
-            child: Icon(Icons.search),
+            padding: const EdgeInsets.only(right: 8.0),
+            child: IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {},
+            ),
           ),
         ],
       ),
@@ -64,7 +68,14 @@ class _NewsPageState extends State<NewsPage>
             CustomListTile(
               Icons.people,
               'Time',
-              () => {},
+              () {
+                Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) => TeamPage(),
+                  ),
+                );
+              },
             ),
             CustomListTile(
               Icons.notifications,
@@ -76,14 +87,18 @@ class _NewsPageState extends State<NewsPage>
               'Configurações',
               () => {},
             ),
-            CustomListTile(Icons.exit_to_app, 'Logout', () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LoginPage(),
-                ),
-              );
-            }),
+            CustomListTile(
+              Icons.exit_to_app,
+              'Logout',
+              () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LoginPage(),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
