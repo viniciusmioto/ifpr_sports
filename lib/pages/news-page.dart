@@ -20,12 +20,9 @@ class _NewsPageState extends State<NewsPage>
       appBar: AppBar(
         title: Text('SPORTIF'),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {},
-            ),
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {},
           ),
         ],
       ),

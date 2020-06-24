@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ifsports/pages/user-form.dart';
 import 'package:ifsports/pages/user.dart';
 
 class UserTile extends StatelessWidget {
@@ -25,7 +26,14 @@ class UserTile extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.edit),
               color: Colors.cyan,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => UserForm(),
+                  ),
+                );
+              },
             ),
             IconButton(
               icon: Icon(Icons.delete),
