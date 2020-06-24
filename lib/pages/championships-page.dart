@@ -41,18 +41,11 @@ class _ChampionshipsPageState extends State<ChampionshipsPage>
             Colors.green,
           ),
           ChampionshipsInfo(
-            'SELETIVA JIFSUL',
-            '01/09/2020',
-            'Porto Alegre - RS',
-            "assets/seletiva.png",
-            Colors.amber,
-          ),
-          ChampionshipsInfo(
             'ESTATUDAIS',
             '10/07/2020',
             'Curitiba - PR',
             "assets/estaduais.png",
-            Colors.indigoAccent,
+            Colors.amber,
           ),
           ChampionshipsInfo(
             'MUNICIPAIS',

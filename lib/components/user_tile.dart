@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ifsports/pages/user-form.dart';
 import 'package:ifsports/pages/user.dart';
+import 'package:ifsports/provider/users-provider.dart';
+import 'package:ifsports/routes/app-routes.dart';
+import 'package:provider/provider.dart';
 
 class UserTile extends StatelessWidget {
   final User user;
@@ -27,18 +30,46 @@ class UserTile extends StatelessWidget {
               icon: Icon(Icons.edit),
               color: Colors.cyan,
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => UserForm(),
-                  ),
+                Navigator.of(context).pushNamed(
+                  AppRoutes.USER_FORM,
+                  arguments: user,
                 );
               },
             ),
             IconButton(
               icon: Icon(Icons.delete),
               color: Colors.redAccent,
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (ctx) => AlertDialog(
+                    title: Text('Excluir Usuário'),
+                    content: Text('Confirmar Exclusão'),
+                    actions: <Widget>[
+                      FlatButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('CANCELAR'),
+                      ),
+                      FlatButton(
+                        color: Colors.redAccent,
+                        onPressed: () {
+                          Provider.of<UsersProvider>(context, listen: false)
+                              .remove(user);
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          'EXCLUIR',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
           ],
         ),

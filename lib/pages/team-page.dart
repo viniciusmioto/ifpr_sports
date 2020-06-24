@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ifsports/components/user_tile.dart';
-import 'package:ifsports/pages/user-form.dart';
-import 'package:ifsports/provider/users.dart';
+import 'package:ifsports/provider/users-provider.dart';
+import 'package:ifsports/routes/app-routes.dart';
 import 'package:provider/provider.dart';
 
 class TeamPage extends StatelessWidget {
@@ -26,11 +26,8 @@ class TeamPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => UserForm(),
-            ),
+          Navigator.of(context).pushNamed(
+            AppRoutes.USER_FORM,
           );
         },
         child: Icon(Icons.add),

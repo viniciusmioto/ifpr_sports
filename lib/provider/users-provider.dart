@@ -36,12 +36,13 @@ class UsersProvider with ChangeNotifier {
           avatarUrl: user.avatarUrl,
         ),
       );
+      
     } else {
       final id = Random().nextDouble().toString();
       _items.putIfAbsent(
         id,
         () => User(
-          id: user.id,
+          id: id,
           name: user.name,
           email: user.email,
           avatarUrl: user.avatarUrl,
