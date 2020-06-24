@@ -48,16 +48,14 @@ class UserTile extends StatelessWidget {
                     actions: <Widget>[
                       FlatButton(
                         onPressed: () {
-                          Navigator.of(context).pop();
+                          Navigator.of(context).pop(true);
                         },
                         child: Text('CANCELAR'),
                       ),
                       FlatButton(
                         color: Colors.redAccent,
                         onPressed: () {
-                          Provider.of<UsersProvider>(context, listen: false)
-                              .remove(user);
-                          Navigator.of(context).pop();
+                          Navigator.of(context).pop(false);
                         },
                         child: Text(
                           'EXCLUIR',
@@ -68,6 +66,11 @@ class UserTile extends StatelessWidget {
                       ),
                     ],
                   ),
+                ).then(
+                  (confirmed) {
+                    Provider.of<UsersProvider>(context, listen: false)
+                        .remove(user);
+                  },
                 );
               },
             ),

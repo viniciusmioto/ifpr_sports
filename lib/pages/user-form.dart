@@ -48,53 +48,60 @@ class UserForm extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(25),
-        child: Form(
-          key: _form,
-          child: Column(
-            children: <Widget>[
-              TextFormField(
-                initialValue: _formData['name'],
-                autofocus: true,
-                onSaved: (value) => _formData['name'] = value,
-                validator: (value) {
-                  if (value == null ||
-                      value.isEmpty ||
-                      value.trim().length < 3) {
-                    return 'Nome inválido';
-                  }
-                  return null;
-                },
-                decoration: InputDecoration(
-                  labelText: 'Nome',
+        padding: const EdgeInsets.all(25.0),
+        child: ListView(
+            children: [
+              Form(
+            key: _form,
+            child: Column(
+              children: <Widget>[
+                TextFormField(
+                  keyboardType: TextInputType.text,
+                  initialValue: _formData['name'],
+                  autofocus: true,
+                  onSaved: (value) => _formData['name'] = value,
+                  validator: (value) {
+                    if (value == null ||
+                        value.isEmpty ||
+                        value.trim().length < 3) {
+                      return 'Nome inválido';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Nome',
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              TextFormField(
-                initialValue: _formData['email'],
-                autofocus: true,
-                onSaved: (value) => _formData['email'] = value,
-                decoration: InputDecoration(
-                  labelText: 'Email',
+                SizedBox(
+                  height: 12,
                 ),
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              TextFormField(
-                initialValue: _formData['avatarUrl'],
-                autofocus: true,
-                onSaved: (value) => _formData['avatarUrl'] = value,
-                decoration: InputDecoration(
-                  labelText: 'URL do Avatar',
+                TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  initialValue: _formData['email'],
+                  autofocus: true,
+                  onSaved: (value) => _formData['email'] = value,
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                  ),
                 ),
-              ),
+                SizedBox(
+                  height: 12,
+                ),
+                TextFormField(
+                  keyboardType: TextInputType.text,
+                  initialValue: _formData['avatarUrl'],
+                  autofocus: true,
+                  onSaved: (value) => _formData['avatarUrl'] = value,
+                  decoration: InputDecoration(
+                    labelText: 'URL do Avatar',
+                  ),
+                ),
+              ],
+            ),
+          ),
             ],
           ),
-        ),
-      ),
+      ),   
     );
   }
 }

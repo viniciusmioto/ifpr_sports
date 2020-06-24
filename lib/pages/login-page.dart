@@ -32,9 +32,9 @@ class LoginPage extends StatelessWidget {
                   fontSize: 26,
                   fontWeight: FontWeight.w700,
                 ),
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  labelText: "CPF",
+                  labelText: "EMAIL",
                   labelStyle: TextStyle(
                     color: Colors.white70,
                     fontWeight: FontWeight.w400,

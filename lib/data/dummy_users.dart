@@ -17,16 +17,16 @@ const DUMMY_USERS = {
   ),
   '3': const User(
     id: '3',
-    name: 'Maria Eduarda',
-    email: 'm.eduarda@icloud.com',
+    name: 'Guilherme Spada',
+    email: 'guispada13@gmail.com',
     avatarUrl:
-        "https://images.pexels.com/photos/2092709/pexels-photo-2092709.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "https://pbs.twimg.com/profile_images/1263580975956553729/JOa_rJdk_400x400.jpg",
   ),
   '4': const User(
     id: '4',
-    name: 'Letícia Silva',
-    email: 'leticiasilva@gmail.com',
+    name: 'Eduan Hornig',
+    email: 'eduanh@gmail.com',
     avatarUrl:
-        "https://images.pexels.com/photos/2613260/pexels-photo-2613260.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "https://pbs.twimg.com/profile_images/1254979159341793281/hihPGylL_400x400.jpg",
   ),
 };
