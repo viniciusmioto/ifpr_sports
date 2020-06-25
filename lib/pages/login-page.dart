@@ -24,145 +24,163 @@ class LoginPage extends StatelessWidget {
             ),
             SizedBox(
               height: 30,
+            ),
+            TextFormField(
+              autofocus: false,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 26,
+                fontWeight: FontWeight.w700,
               ),
-              TextFormField(
-                autofocus: false,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 26,
-                  fontWeight: FontWeight.w700,
-                ),
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
                   labelText: "EMAIL",
                   labelStyle: TextStyle(
                     color: Colors.white70,
                     fontWeight: FontWeight.w400,
                     fontSize: 20,
-                  )
-                ),
+                  )),
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            TextFormField(
+              keyboardType: TextInputType.text,
+              obscureText: true,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 26,
+                fontWeight: FontWeight.w700,
               ),
-              SizedBox(
-                height: 12,
-              ),
-              TextFormField(
-                keyboardType: TextInputType.text,
-                obscureText: true,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 26,
-                  fontWeight: FontWeight.w700,
-                ),
-                decoration: InputDecoration(
+              decoration: InputDecoration(
                   labelText: "SENHA",
                   labelStyle: TextStyle(
                     color: Colors.white70,
                     fontWeight: FontWeight.w400,
                     fontSize: 20,
-                  )
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                height: 30,
-                alignment: Alignment.centerRight,
-                child: FlatButton(
-                  child: Text("Recuperar Senha",
+                  )),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              height: 30,
+              alignment: Alignment.centerRight,
+              child: FlatButton(
+                child: Text(
+                  "Recuperar Senha",
                   style: TextStyle(
                     color: Colors.white70,
-                  ),),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => ResetPasswordPage(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Container(
+              height: 40,
+              alignment: Alignment.centerLeft,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.bottomRight,
+                  stops: [0.3, 1],
+                  colors: [
+                    Colors.greenAccent,
+                    Colors.green,
+                  ],
+                ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(7),
+                ),
+              ),
+              child: SizedBox.expand(
+                child: FlatButton(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        "LOGIN",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Icon(
+                        Icons.account_circle,
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      CupertinoPageRoute(
-                        builder: (context) => ResetPasswordPage(),
-                      ),
-                    );
-                  },
-                ),
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              Container(
-                height: 40,
-                alignment: Alignment.centerLeft,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.bottomLeft,
-                    end: Alignment.bottomRight,
-                    stops: [0.3, 1],
-                    colors: [
-                      Colors.greenAccent,
-                      Colors.green,
-                      ],
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(7),
-                  ),
-                ),
-                child: SizedBox.expand(
-                  child: FlatButton(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text("LOGIN"),
-                        Icon(Icons.account_circle),
-                      ],
-                    ),
-                    onPressed: () {
-                      Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => HomePage(),
                       ),
                     );
-                    },
-                  ),
+                  },
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-             Container(
-                height: 40,
-                alignment: Alignment.centerLeft,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.bottomLeft,
-                    end: Alignment.bottomRight,
-                    stops: [0.3, 1],
-                    colors: [
-                      Colors.green,
-                      Colors.greenAccent,
-                      ],
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(7),
-                  ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 40,
+              alignment: Alignment.centerLeft,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.bottomRight,
+                  stops: [0.3, 1],
+                  colors: [
+                    Colors.green,
+                    Colors.greenAccent,
+                  ],
                 ),
-                child: SizedBox.expand(
-                  child: FlatButton(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Icon(Icons.person_add),
-                        Text("CADASTRAR-SE"),
-                      ],
-                    ),
-                    onPressed: () {
-                      Navigator.push(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(7),
+                ),
+              ),
+              child: SizedBox.expand(
+                child: FlatButton(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Icon(
+                        Icons.person_add,
+                        color: Colors.black,
+                      ),
+                      Text(
+                        "CADASTRAR-SE",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                  onPressed: () {
+                    Navigator.push(
                       context,
                       CupertinoPageRoute(
                         builder: (context) => SignUpPage(),
                       ),
                     );
-                    },
-                  ),
+                  },
                 ),
               ),
+            ),
           ],
         ),
       ),

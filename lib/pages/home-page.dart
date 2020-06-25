@@ -3,6 +3,8 @@ import 'package:ifsports/pages/championships-page.dart';
 import 'package:ifsports/pages/events-page.dart';
 import 'package:ifsports/pages/news-page.dart';
 import 'package:ifsports/pages/training-page.dart';
+import 'package:ifsports/provider/settings-provider.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -13,7 +15,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   PageController _pageController = PageController();
-  List<Widget> _screens = [NewsPage(), TrainingPage(), EventsPage(), ChampionshipsPage()];
+  List<Widget> _screens = [
+    NewsPage(),
+    TrainingPage(),
+    EventsPage(),
+    ChampionshipsPage()
+  ];
+
+  ThemeChanger themeChanger;
+  bool systemIsDark;
 
   int _selectedIndex = 0;
 
@@ -27,8 +37,17 @@ class _HomePageState extends State<HomePage> {
     _pageController.jumpToPage(selectedIndex);
   }
 
+  void initSate() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      themeChanger.setDarkStatus(systemIsDark);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    themeChanger = Provider.of<ThemeChanger>(context, listen: false);
+    systemIsDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
       body: PageView(
         controller: _pageController,
