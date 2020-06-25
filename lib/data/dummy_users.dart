@@ -1,4 +1,4 @@
-import 'package:ifsports/pages/user.dart';
+import 'package:ifsports/classes/user.dart';
 
 const DUMMY_USERS = {
   '1': const User(

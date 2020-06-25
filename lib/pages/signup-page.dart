@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ifsports/pages/news-page.dart';
+import 'package:ifsports/screens/news-page.dart';
 
 class SignUpPage extends StatelessWidget {
   @override

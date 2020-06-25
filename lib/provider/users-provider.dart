@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:ifsports/data/dummy_users.dart';
-import 'package:ifsports/pages/user.dart';
+import 'package:ifsports/classes/user.dart';
 
 class UsersProvider with ChangeNotifier {
   Map<String, User> _items = {...DUMMY_USERS};

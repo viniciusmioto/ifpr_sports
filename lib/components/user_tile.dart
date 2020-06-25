@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ifsports/pages/user.dart';
+import 'package:ifsports/classes/user.dart';
 import 'package:ifsports/provider/users-provider.dart';
 import 'package:ifsports/routes/app-routes.dart';
 import 'package:provider/provider.dart';

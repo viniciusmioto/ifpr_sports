@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ifsports/pages/home-page.dart';
+import 'package:ifsports/screens/home-page.dart';
 import 'package:ifsports/pages/reset-password.dart';
 import 'package:ifsports/pages/signup-page.dart';
 

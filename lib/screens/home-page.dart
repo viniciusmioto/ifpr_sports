@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ifsports/pages/championships-page.dart';
-import 'package:ifsports/pages/events-page.dart';
-import 'package:ifsports/pages/news-page.dart';
-import 'package:ifsports/pages/training-page.dart';
+import 'package:ifsports/screens/championships-page.dart';
+import 'package:ifsports/screens/events-page.dart';
+import 'package:ifsports/screens/news-page.dart';
+import 'package:ifsports/screens/training-page.dart';
 import 'package:ifsports/provider/settings-provider.dart';
 import 'package:provider/provider.dart';
 
