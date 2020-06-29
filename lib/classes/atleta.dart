@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class User {
+class Atleta {
   final String id;
   final String name;
   final String modalidade;
   final String avatarUrl;
 
-  const User({
+  const Atleta({
     this.id,
     @required this.name,
     @required this.modalidade,

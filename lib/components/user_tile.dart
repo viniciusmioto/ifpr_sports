@@ -1,27 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ifsports/classes/user.dart';
-import 'package:ifsports/provider/users-provider.dart';
+import 'package:ifsports/classes/atleta.dart';
+import 'package:ifsports/provider/atleta-provider.dart';
 import 'package:ifsports/routes/app-routes.dart';
 import 'package:provider/provider.dart';
 
 class UserTile extends StatelessWidget {
-  final User user;
+  final Atleta atleta;
 
-  const UserTile(this.user);
+  const UserTile(this.atleta);
 
   @override
   Widget build(BuildContext context) {
-    final avatar = user.avatarUrl == null || user.avatarUrl.isEmpty
+    final avatar = atleta.avatarUrl == null || atleta.avatarUrl.isEmpty
         ? CircleAvatar(child: Icon(Icons.person))
         : CircleAvatar(
-            backgroundImage: NetworkImage(user.avatarUrl),
+            backgroundImage: NetworkImage(atleta.avatarUrl),
           );
 
     return ListTile(
       leading: avatar,
-      title: Text(user.name),
-      subtitle: Text(user.modalidade),
+      title: Text(atleta.name),
+      subtitle: Text(atleta.modalidade),
       trailing: Container(
         width: 100,
         child: Row(
@@ -32,7 +32,7 @@ class UserTile extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamed(
                   AppRoutes.USER_FORM,
-                  arguments: user,
+                  arguments: atleta,
                 );
               },
             ),
@@ -68,8 +68,8 @@ class UserTile extends StatelessWidget {
                   ),
                 ).then(
                   (confirmed) {
-                    Provider.of<UsersProvider>(context, listen: false)
-                        .remove(user);
+                    Provider.of<AtletasProvider>(context, listen: false)
+                        .remove(atleta);
                   },
                 );
               },

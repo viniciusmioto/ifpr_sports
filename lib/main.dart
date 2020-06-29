@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ifsports/pages/user-form.dart';
+import 'package:ifsports/pages/atleta-form.dart';
 import 'package:ifsports/pages/wrapper.dart';
-import 'package:ifsports/provider/users-provider.dart';
+import 'package:ifsports/provider/atleta-provider.dart';
 import 'package:ifsports/routes/app-routes.dart';
 import 'package:ifsports/provider/settings-provider.dart';
 import 'package:provider/provider.dart';
@@ -9,8 +9,8 @@ import 'package:provider/provider.dart';
 void main() => runApp(
       MultiProvider(
         providers: [
-          ChangeNotifierProvider<UsersProvider>(
-            create: (ctx) => UsersProvider(),
+          ChangeNotifierProvider<AtletasProvider>(
+            create: (ctx) => AtletasProvider(),
           ),
           ChangeNotifierProvider<ThemeChanger>(
             create: (_) => ThemeChanger(),
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
       themeMode: darkThemeEnable ? ThemeMode.dark : ThemeMode.light,
       home: Wrapper(),
       routes: {
-        AppRoutes.USER_FORM: (_) => UserForm(),
+        AppRoutes.USER_FORM: (_) => AtletaForm(),
       },
     );
   }
