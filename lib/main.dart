@@ -1,6 +1,6 @@
-import 'package:ifsports/pages/login-page.dart';
 import 'package:flutter/material.dart';
 import 'package:ifsports/pages/user-form.dart';
+import 'package:ifsports/pages/wrapper.dart';
 import 'package:ifsports/provider/users-provider.dart';
 import 'package:ifsports/routes/app-routes.dart';
 import 'package:ifsports/provider/settings-provider.dart';
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       themeMode: darkThemeEnable ? ThemeMode.dark : ThemeMode.light,
-      home: LoginPage(),
+      home: Wrapper(),
       routes: {
         AppRoutes.USER_FORM: (_) => UserForm(),
       },

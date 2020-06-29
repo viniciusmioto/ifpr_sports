@@ -3,8 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:ifsports/screens/home-page.dart';
 import 'package:ifsports/pages/reset-password.dart';
 import 'package:ifsports/pages/signup-page.dart';
+import 'package:ifsports/services/auth.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +28,18 @@ class LoginPage extends StatelessWidget {
             SizedBox(
               width: 120,
               height: 120,
-              child: Image.asset("assets/logo.png"),
+              child: FlatButton(
+                child: Image.asset("assets/logo.png"),
+                onPressed: () async {
+                  dynamic result = await _auth.signInAnon();
+                  if (result == null) {
+                    print('ERROR signi in');
+                  } else {
+                    print('Signed in!');
+                    print(result);
+                  }
+                },
+              ),
             ),
             SizedBox(
               height: 30,
