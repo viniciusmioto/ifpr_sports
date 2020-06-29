@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ifsports/classes/custom-list-tile.dart';
 import 'package:ifsports/classes/post-messages.dart';
-import 'package:ifsports/pages/login-page.dart';
 import 'package:ifsports/pages/settings-page.dart';
 import 'package:ifsports/pages/team-page.dart';
+import 'package:ifsports/services/auth.dart';
 
 class NewsPage extends StatefulWidget {
   NewsPage({Key key}) : super(key: key);
@@ -15,6 +15,7 @@ class NewsPage extends StatefulWidget {
 
 class _NewsPageState extends State<NewsPage>
     with AutomaticKeepAliveClientMixin {
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -99,18 +100,9 @@ class _NewsPageState extends State<NewsPage>
                 ),
               },
             ),
-            CustomListTile(
-              Icons.exit_to_app,
-              'Logout',
-              () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LoginPage(),
-                  ),
-                );
-              },
-            ),
+            CustomListTile(Icons.exit_to_app, 'Logout', () async {
+              await _auth.signOut();
+            }),
           ],
         ),
       ),

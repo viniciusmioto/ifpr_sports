@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
                     print('ERROR signi in');
                   } else {
                     print('Signed in!');
-                    print(result);
+                    print(result.uid);
                   }
                 },
               ),
