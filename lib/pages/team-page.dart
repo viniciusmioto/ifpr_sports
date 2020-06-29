@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ifsports/components/user_tile.dart';
+import 'package:ifsports/components/atleta_tile.dart';
 import 'package:ifsports/provider/atleta-provider.dart';
 import 'package:ifsports/routes/app-routes.dart';
 import 'package:provider/provider.dart';

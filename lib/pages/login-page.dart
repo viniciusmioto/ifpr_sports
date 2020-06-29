@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ifsports/screens/home-page.dart';
 import 'package:ifsports/pages/reset-password.dart';
 import 'package:ifsports/pages/signup-page.dart';
 import 'package:ifsports/services/auth.dart';
@@ -12,6 +11,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final AuthService _auth = AuthService();
+
+  String email = '';
+  String password = '';
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +43,12 @@ class _LoginPageState extends State<LoginPage> {
                 },
               ),
             ),
-            SizedBox(
-              height: 30,
-            ),
+            SizedBox(height: 30),
             TextFormField(
               autofocus: false,
+              onChanged: (value) {
+                setState(() => email = value);
+              },
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 26,
@@ -60,12 +63,13 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize: 20,
                   )),
             ),
-            SizedBox(
-              height: 12,
-            ),
+            SizedBox(height: 12),
             TextFormField(
               keyboardType: TextInputType.text,
               obscureText: true,
+              onChanged: (value) {
+                setState(() => password = value);
+              },
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 26,
@@ -79,9 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize: 20,
                   )),
             ),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 10),
             Container(
               height: 30,
               alignment: Alignment.centerRight,
@@ -102,9 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                 },
               ),
             ),
-            SizedBox(
-              height: 40,
-            ),
+            SizedBox(height: 40),
             Container(
               height: 40,
               alignment: Alignment.centerLeft,
@@ -141,19 +141,13 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePage(),
-                      ),
-                    );
+                    print(email);
+                    print(password);
                   },
                 ),
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
             Container(
               height: 40,
               alignment: Alignment.centerLeft,

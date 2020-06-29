@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:ifsports/screens/news-page.dart';
+import 'package:ifsports/services/auth.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
+  @override
+  _SignUpPageState createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  final AuthService _auth = AuthService();
+
+  String email = '';
+  String password = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +31,8 @@ class SignUpPage extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             Container(
-              width: 100,
-              height: 100,
+              width: 80,
+              height: 80,
               alignment: Alignment(0.0, 1.15),
               decoration: new BoxDecoration(
                 image: new DecorationImage(
@@ -29,23 +40,9 @@ class SignUpPage extends StatelessWidget {
                   fit: BoxFit.fitHeight,
                 ),
               ),
-              child: Container(
-                height: 30,
-                width: 30,
-                alignment: Alignment.center,
-                child: SizedBox.expand(
-                  child: FlatButton(
-                    child: Icon(
-                      Icons.add_a_photo,
-                    ),
-                    onPressed: () => {},
-                  ),
-                ),
-              ),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            SizedBox(height: 20),
+            /*
             TextFormField(
               autofocus: true,
               keyboardType: TextInputType.text,
@@ -61,11 +58,13 @@ class SignUpPage extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 10),
+            */
             TextFormField(
               autofocus: false,
+              onChanged: (value) {
+                setState(() => email = value);
+              },
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 labelText: "EMAIL",
@@ -79,12 +78,13 @@ class SignUpPage extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 10),
             TextFormField(
               autofocus: false,
               obscureText: true,
+              onChanged: (value) {
+                setState(() => password = value);
+              },
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 labelText: "SENHA",
@@ -98,9 +98,7 @@ class SignUpPage extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            SizedBox(
-              height: 40,
-            ),
+            SizedBox(height: 40),
             Container(
               height: 40,
               alignment: Alignment.centerLeft,
