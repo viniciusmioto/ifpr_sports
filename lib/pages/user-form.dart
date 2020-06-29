@@ -11,7 +11,7 @@ class UserForm extends StatelessWidget {
     if (user != null) {
       _formData['id'] = user.id;
       _formData['name'] = user.name;
-      _formData['email'] = user.email;
+      _formData['modalidade'] = user.modalidade;
       _formData['avatarUrl'] = user.avatarUrl;
     }
   }
@@ -37,7 +37,7 @@ class UserForm extends StatelessWidget {
                   User(
                     id: _formData['id'],
                     name: _formData['name'],
-                    email: _formData['email'],
+                    modalidade: _formData['modalidade'],
                     avatarUrl: _formData['avatarUrl'],
                   ),
                 );
@@ -76,12 +76,12 @@ class UserForm extends StatelessWidget {
                   height: 12,
                 ),
                 TextFormField(
-                  keyboardType: TextInputType.emailAddress,
-                  initialValue: _formData['email'],
+                  keyboardType: TextInputType.text,
+                  initialValue: _formData['modalidade'],
                   autofocus: true,
-                  onSaved: (value) => _formData['email'] = value,
+                  onSaved: (value) => _formData['modalidade'] = value,
                   decoration: InputDecoration(
-                    labelText: 'Email',
+                    labelText: 'Modalidade',
                   ),
                 ),
                 SizedBox(
