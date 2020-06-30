@@ -26,7 +26,7 @@ class _ChampionshipsPageState extends State<ChampionshipsPage>
             '24/11/2020',
             'Cuiabá - MT',
             "assets/jifnacio.png",
-            Colors.deepPurple,
+            Colors.purple[800],
           ),
           CampeonatoInfo(
             'JIFSUL',
@@ -54,7 +54,7 @@ class _ChampionshipsPageState extends State<ChampionshipsPage>
             '08/05/2020',
             'Colombo - PR',
             "assets/municipais.png",
-            Colors.purple[800],
+            Colors.deepPurple,
           ),
           CampeonatoInfo(
             'INTERCLASSE',
