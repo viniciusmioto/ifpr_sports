@@ -22,7 +22,7 @@ class TeamPage extends StatelessWidget {
       ),
       body: ListView.builder(
         itemCount: users.count,
-        itemBuilder: (ctx, index) => UserTile(users.byIndex(index)),
+        itemBuilder: (ctx, index) => AtletaTile(users.byIndex(index)),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

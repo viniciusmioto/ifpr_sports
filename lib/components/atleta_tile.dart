@@ -5,10 +5,10 @@ import 'package:ifsports/provider/atleta-provider.dart';
 import 'package:ifsports/routes/app-routes.dart';
 import 'package:provider/provider.dart';
 
-class UserTile extends StatelessWidget {
+class AtletaTile extends StatelessWidget {
   final Atleta atleta;
 
-  const UserTile(this.atleta);
+  const AtletaTile(this.atleta);
 
   @override
   Widget build(BuildContext context) {

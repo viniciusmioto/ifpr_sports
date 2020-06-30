@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ifsports/components/campeonato-info.dart';
 
 class ChampionshipsPage extends StatefulWidget {
   @override
@@ -19,47 +21,47 @@ class _ChampionshipsPageState extends State<ChampionshipsPage>
       ),
       body: ListView(
         children: <Widget>[
-          ChampionshipsInfo(
+          CampeonatoInfo(
             'JIFNACIONAL',
             '24/11/2020',
             'Cuiabá - MT',
             "assets/jifnacio.png",
             Colors.deepPurple,
           ),
-          ChampionshipsInfo(
+          CampeonatoInfo(
             'JIFSUL',
             '20/10/2020',
             'Florianópolis - SC',
             "assets/jifsul.png",
-            Colors.blue
+            Colors.blue[900],
           ),
-          ChampionshipsInfo(
+          CampeonatoInfo(
             'JIFPR',
             '28/09/2020',
             'Palmas - PR',
             "assets/jifpr.png",
-            Colors.green,
+            Colors.green[600],
           ),
-          ChampionshipsInfo(
+          CampeonatoInfo(
             'ESTATUDAIS',
             '10/07/2020',
             'Curitiba - PR',
             "assets/estaduais.png",
-            Colors.amber,
+            Colors.amber[900],
           ),
-          ChampionshipsInfo(
+          CampeonatoInfo(
             'MUNICIPAIS',
             '08/05/2020',
             'Colombo - PR',
             "assets/municipais.png",
-            Colors.purple,
+            Colors.purple[800],
           ),
-          ChampionshipsInfo(
+          CampeonatoInfo(
             'INTERCLASSE',
             '25/10/2020',
             'Colombo - PR',
             "assets/interclasse.png",
-            Colors.deepOrange,
+            Colors.deepOrange[600],
           ),
         ],
       ),
@@ -68,66 +70,4 @@ class _ChampionshipsPageState extends State<ChampionshipsPage>
 
   @override
   bool get wantKeepAlive => true;
-}
-
-class ChampionshipsInfo extends StatelessWidget {
-  final String competicao;
-  final String data;
-  final String local;
-  final String imagem;
-  final Color cor;
-
-  ChampionshipsInfo(this.competicao, this.data, this.local, this.imagem, this.cor);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Card(
-        color: cor,
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: SizedBox(
-                height: 80,
-                width: 80,
-                child: Image.asset(imagem),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                child: Text(
-                  competicao,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            Divider(
-              height: 20,
-              thickness: 5,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                '\nDATA: ' + data + '\nLOCAL: ' + local,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 }

@@ -215,7 +215,7 @@ class _LoginPageState extends State<LoginPage> {
               Text(
                 error,
                 style: TextStyle(
-                  color: Colors.redAccent,
+                  color: CupertinoColors.systemRed,
                 ),
               ),
             ],

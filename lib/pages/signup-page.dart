@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ifsports/components/loading.dart';
 import 'package:ifsports/screens/home-page.dart';
@@ -185,7 +186,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         Text(
                           error,
                           style: TextStyle(
-                            color: Colors.redAccent,
+                            color: CupertinoColors.systemRed,
                           ),
                         ),
                       ],
