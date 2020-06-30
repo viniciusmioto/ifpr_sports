@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ifsports/components/loading.dart';
 import 'package:ifsports/pages/reset-password.dart';
 import 'package:ifsports/pages/signup-page.dart';
 import 'package:ifsports/services/auth.dart';
@@ -13,13 +14,14 @@ class _LoginPageState extends State<LoginPage> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
 
+  bool loading = false;
   String email = '';
   String password = '';
   String error = '';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       body: Form(
         key: _formKey,
         child: Container(
@@ -149,10 +151,14 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     onPressed: () async {
                       if (_formKey.currentState.validate()) {
+                        setState(() => loading = true);
                         dynamic result =
                             await _auth.signInEmailAndPassword(email, password);
                         if (result == null) {
-                          setState(() => error = 'Email ou Senha incorretos!');
+                          setState(() {
+                            error = 'Email ou Senha incorretos!';
+                            loading = false;
+                          });
                         }
                       }
                     },

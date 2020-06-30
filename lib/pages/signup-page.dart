@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ifsports/components/loading.dart';
 import 'package:ifsports/services/auth.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -10,13 +11,14 @@ class _SignUpPageState extends State<SignUpPage> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
 
+  bool loading = false;
   String email = '';
   String password = '';
   String error = '';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal,
         title: Text("Cadastro de Usuário"),
@@ -152,10 +154,14 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         onPressed: () async {
                           if (_formKey.currentState.validate()) {
+                            setState(() => true);
                             dynamic result = await _auth
                                 .registerEmailAndPassword(email, password);
                             if (result == null) {
-                              setState(() => error = 'Erro ao validar campos!');
+                              setState(() {
+                                error = 'Erro ao validar campos!';
+                                loading = false;
+                              });
                             }
                           }
                         },
