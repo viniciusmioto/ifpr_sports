@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ifsports/classes/user.dart';
 import 'package:ifsports/pages/atleta-form.dart';
-import 'package:ifsports/pages/wrapper.dart';
+import 'package:ifsports/services/wrapper.dart';
 import 'package:ifsports/provider/atleta-provider.dart';
 import 'package:ifsports/routes/app-routes.dart';
 import 'package:ifsports/provider/settings-provider.dart';

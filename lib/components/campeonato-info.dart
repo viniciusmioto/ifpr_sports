@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:ifsports/pages/team-page.dart';
 
 class CampeonatoInfo extends StatelessWidget {
   final String competicao;
@@ -62,7 +63,14 @@ class CampeonatoInfo extends StatelessWidget {
                       Icons.people,
                       color: Colors.white,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                          builder: (context) => TeamPage(),
+                        ),
+                      );
+                    },
                   )
                 ],
               ),

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ifsports/classes/user.dart';
+import 'package:ifsports/services/database.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -27,6 +28,7 @@ class AuthService {
       return null;
     }
   }
+
   //entrar com email e senha
   Future signInEmailAndPassword(String email, String password) async {
     try {
@@ -42,15 +44,27 @@ class AuthService {
     }
   }
 
-
   //registrar com email e senha
-  Future registerEmailAndPassword(String email, String password) async {
+  Future registerEmailAndPassword(
+    String email,
+    String password,
+    String nome,
+    String modalidade,
+    String avatarUrl,
+  ) async {
     try {
       AuthResult result = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
       FirebaseUser user = result.user;
+
+      //create a new document for the user with the uid
+      await DatabaseService(uid: user.uid).updateUserData(
+        nome,
+        modalidade,
+        avatarUrl,
+      );
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e.toString());

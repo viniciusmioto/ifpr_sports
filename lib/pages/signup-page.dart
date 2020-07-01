@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ifsports/components/loading.dart';
-import 'package:ifsports/screens/home-page.dart';
 import 'package:ifsports/services/auth.dart';
+import 'package:ifsports/services/wrapper.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -16,6 +16,9 @@ class _SignUpPageState extends State<SignUpPage> {
   bool loading = false;
   String email = '';
   String password = '';
+  String nome = '';
+  String modalidade = '';
+  String avatarUrl = '';
   String error = '';
 
   @override
@@ -35,7 +38,12 @@ class _SignUpPageState extends State<SignUpPage> {
             body: ListView(
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.all(40),
+                  padding: EdgeInsets.only(
+                    left: 40,
+                    right: 40,
+                    top: 20,
+                    bottom: 30,
+                  ),
                   color: Colors.white,
                   child: Form(
                     key: _formKey,
@@ -55,6 +63,9 @@ class _SignUpPageState extends State<SignUpPage> {
                         SizedBox(height: 20),
                         TextFormField(
                           autofocus: true,
+                          onChanged: (value) {
+                            setState(() => nome = value);
+                          },
                           validator: (value) =>
                               value.isEmpty ? 'Insira um nome' : null,
                           keyboardType: TextInputType.text,
@@ -116,7 +127,32 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         SizedBox(height: 10),
                         TextFormField(
-                          autofocus: true,
+                          autofocus: false,
+                          validator: (value) => value.isEmpty
+                              ? 'Informe ao menos uma modalidade'
+                              : null,
+                          onChanged: (value) {
+                            setState(() => modalidade = value);
+                          },
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            labelText: "MODALIDADES",
+                            labelStyle: TextStyle(
+                              color: Colors.black45,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 20,
+                            ),
+                          ),
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        TextFormField(
+                          autofocus: false,
+                          onChanged: (value) {
+                            setState(() => avatarUrl = value);
+                          },
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration(
                             labelText: "URL DO AVATAR",
@@ -163,7 +199,11 @@ class _SignUpPageState extends State<SignUpPage> {
                                   setState(() => loading = true);
                                   dynamic result =
                                       await _auth.registerEmailAndPassword(
-                                          email, password);
+                                          email,
+                                          password,
+                                          nome,
+                                          modalidade,
+                                          avatarUrl);
                                   if (result == null) {
                                     setState(() {
                                       error = 'Erro ao validar campos!';
@@ -173,7 +213,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => HomePage(),
+                                        builder: (context) => Wrapper(),
                                       ),
                                     );
                                   }
