@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ifsports/classes/member.dart';
+import 'package:ifsports/components/member-tile.dart';
 import 'package:provider/provider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MembersList extends StatefulWidget {
   @override
@@ -10,8 +11,15 @@ class MembersList extends StatefulWidget {
 class _MembersListState extends State<MembersList> {
   @override
   Widget build(BuildContext context) {
-    final atletas = Provider.of<QuerySnapshot>(context);
-    print(atletas);
-    return Container();
+    final users = Provider.of<List<Member>>(context);
+
+    return ListView.builder(
+      itemCount: users.length,
+      itemBuilder: (context, index) {
+        return MemberTile(
+          member: users[index],
+        );
+      },
+    );
   }
 }

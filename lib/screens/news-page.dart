@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ifsports/components/custom-list-tile.dart';
 import 'package:ifsports/components/post-messages.dart';
+import 'package:ifsports/pages/members-page.dart';
 import 'package:ifsports/pages/settings-page.dart';
-import 'package:ifsports/pages/team-page.dart';
 import 'package:ifsports/services/auth.dart';
 
 class NewsPage extends StatefulWidget {
@@ -73,12 +73,12 @@ class _NewsPageState extends State<NewsPage>
             ),
             CustomListTile(
               Icons.people,
-              'Atletas',
+              'Membros',
               () {
                 Navigator.push(
                   context,
                   CupertinoPageRoute(
-                    builder: (context) => TeamPage(),
+                    builder: (context) => MembersPage(),
                   ),
                 );
               },
