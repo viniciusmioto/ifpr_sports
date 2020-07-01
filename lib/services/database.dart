@@ -14,7 +14,11 @@ class DatabaseService {
       'nome': nome,
       'modalidade': modalidade,
       'avatarUrl': avatarUrl,
-
     });
+  }
+
+  //get Atletas stream
+  Stream<QuerySnapshot> get atletas {
+    return atletasCollection.snapshots();
   }
 }
