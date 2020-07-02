@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ifsports/components/custom-list-tile.dart';
 import 'package:ifsports/components/post-messages.dart';
 import 'package:ifsports/pages/members-page.dart';
+import 'package:ifsports/pages/profile-page.dart';
 import 'package:ifsports/pages/settings-page.dart';
 import 'package:ifsports/services/auth.dart';
 
@@ -30,7 +31,7 @@ class _NewsPageState extends State<NewsPage>
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.refresh),
             onPressed: () {},
           ),
         ],
@@ -69,20 +70,23 @@ class _NewsPageState extends State<NewsPage>
             CustomListTile(
               Icons.person,
               'Perfil',
-              () => {},
-            ),
-            CustomListTile(
-              Icons.people,
-              'Membros',
-              () {
-                Navigator.push(
-                  context,
-                  CupertinoPageRoute(
-                    builder: (context) => MembersPage(),
-                  ),
-                );
+              () => {
+                  Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => ProfilePage(),
+                ),
+              ),
               },
             ),
+            CustomListTile(Icons.people, 'Membros', () {
+              Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => MembersPage(),
+                ),
+              );
+            }),
             CustomListTile(
               Icons.notifications,
               'Notificaçoes',
