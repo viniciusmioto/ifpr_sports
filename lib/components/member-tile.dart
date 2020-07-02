@@ -17,7 +17,7 @@ class MemberTile extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: 8.0),
       child: Card(
-        margin: EdgeInsets.fromLTRB(0, 2, 0, 0),
+        margin: EdgeInsets.all(0),
         child: ListTile(
           leading: avatar,
           title: Text(member.nome),
