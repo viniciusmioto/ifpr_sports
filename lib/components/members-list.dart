@@ -11,7 +11,7 @@ class MembersList extends StatefulWidget {
 class _MembersListState extends State<MembersList> {
   @override
   Widget build(BuildContext context) {
-    final members = Provider.of<List<Member>>(context);
+    final members = Provider.of<List<Member>>(context)  ?? [];
 
     return ListView.builder(
       itemCount: members.length,

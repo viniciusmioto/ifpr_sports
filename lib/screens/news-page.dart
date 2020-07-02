@@ -71,16 +71,16 @@ class _NewsPageState extends State<NewsPage>
               Icons.person,
               'Perfil',
               () => {
-                  Navigator.push(
-                context,
-                CupertinoPageRoute(
-                  builder: (context) => ProfilePage(),
+                Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (context) => ProfilePage(),
+                  ),
                 ),
-              ),
               },
             ),
-            CustomListTile(Icons.people, 'Membros', () {
-              Navigator.push(
+            CustomListTile(Icons.people, 'Membros', () async {
+              await Navigator.push(
                 context,
                 CupertinoPageRoute(
                   builder: (context) => MembersPage(),
