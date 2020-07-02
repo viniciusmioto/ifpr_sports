@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ifsports/components/edit-profile.dart';
 
@@ -9,17 +10,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    void _showEditProfilePanel() {
-      showModalBottomSheet(
-          context: context,
-          builder: (context) {
-            return Container(
-              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-              child:  EditProfileForm(),
-            );
-          });
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: Text("PERFIL"),
@@ -27,7 +17,12 @@ class _ProfilePageState extends State<ProfilePage> {
           IconButton(
             icon: Icon(Icons.edit),
             onPressed: () {
-              _showEditProfilePanel();
+              Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => EditProfileForm(),
+                ),
+              );
             },
           ),
         ],
