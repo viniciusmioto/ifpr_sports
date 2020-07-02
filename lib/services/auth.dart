@@ -64,6 +64,7 @@ class AuthService {
         nome,
         modalidade,
         avatarUrl,
+        email,
       );
       return _userFromFirebaseUser(user);
     } catch (e) {

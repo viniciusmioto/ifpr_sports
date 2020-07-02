@@ -6,18 +6,20 @@ class DatabaseService {
   DatabaseService({this.uid});
 
   // colletion reference
-  final CollectionReference usersCollection =
-      Firestore.instance.collection('users');
+  final CollectionReference membersCollection =
+      Firestore.instance.collection('members');
 
   Future updateUserData(
     String nome,
     String modalidade,
     String avatarUrl,
+    String email,
   ) async {
-    return await usersCollection.document(uid).setData({
+    return await membersCollection.document(uid).setData({
       'nome': nome,
       'modalidade': modalidade,
       'avatarUrl': avatarUrl,
+      'email': email,
     });
   }
 
@@ -27,13 +29,14 @@ class DatabaseService {
       return Member(
         avatarUrl: doc.data['avatarUrl'] ?? '',
         nome: doc.data['nome'] ?? '',
+        email: doc.data['email'] ?? '',
         modalidade: doc.data['modalidade'] ?? null,
       );
     }).toList();
   }
 
   // get users stream
-  Stream<List<Member>> get users {
-    return usersCollection.snapshots().map(_usersListFromSnapshot);
+  Stream<List<Member>> get members {
+    return membersCollection.snapshots().map(_usersListFromSnapshot);
   }
 }

@@ -9,7 +9,7 @@ class MembersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<Member>>.value(
-      value: DatabaseService().users,
+      value: DatabaseService().members,
       child: Scaffold(
         appBar: AppBar(
           title: Text('Membros'),

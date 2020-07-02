@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ifsports/classes/member.dart';
 
@@ -16,11 +17,21 @@ class MemberTile extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: 8.0),
       child: Card(
-        margin: EdgeInsets.fromLTRB(20, 6, 20, 0),
+        margin: EdgeInsets.fromLTRB(0, 2, 0, 0),
         child: ListTile(
           leading: avatar,
           title: Text(member.nome),
           subtitle: Text(member.modalidade),
+          trailing: IconButton(
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (ctx) => CupertinoAlertDialog(
+                        title: Text(member.email),
+                      ));
+            },
+            icon: Icon(Icons.more_vert),
+          ),
         ),
       ),
     );

@@ -11,13 +11,13 @@ class MembersList extends StatefulWidget {
 class _MembersListState extends State<MembersList> {
   @override
   Widget build(BuildContext context) {
-    final users = Provider.of<List<Member>>(context);
+    final members = Provider.of<List<Member>>(context);
 
     return ListView.builder(
-      itemCount: users.length,
+      itemCount: members.length,
       itemBuilder: (context, index) {
         return MemberTile(
-          member: users[index],
+          member: members[index],
         );
       },
     );
