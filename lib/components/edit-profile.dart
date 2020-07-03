@@ -11,8 +11,9 @@ class EditProfileForm extends StatefulWidget {
 }
 
 class _EditProfileForm extends State<EditProfileForm> {
-  final _fornKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   final List<String> modalidades = [
+    'Treinador',
     'Atletismo',
     'Basquete',
     'Futebol',
@@ -54,7 +55,7 @@ class _EditProfileForm extends State<EditProfileForm> {
               child: ListView(
                 children: <Widget>[
                   Form(
-                    key: _fornKey,
+                    key: _formKey,
                     child: Column(
                       children: [
                         TextFormField(
@@ -181,7 +182,7 @@ class _EditProfileForm extends State<EditProfileForm> {
                           ],
                         ),
                         onPressed: () async {
-                          if (_fornKey.currentState.validate()) {
+                          if (_formKey.currentState.validate()) {
                             await DatabaseService(uid: user.uid).updateUserData(
                               _currentName ?? userData.nome,
                               _currentModalidade ?? userData.modalidade,

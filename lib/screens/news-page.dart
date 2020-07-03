@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ifsports/classes/post.dart';
 import 'package:ifsports/classes/user.dart';
 import 'package:ifsports/components/custom-list-tile.dart';
-import 'package:ifsports/components/post-messages.dart';
+import 'package:ifsports/components/post-form.dart';
 import 'package:ifsports/pages/members-page.dart';
 import 'package:ifsports/pages/profile-page.dart';
 import 'package:ifsports/pages/settings-page.dart';
@@ -25,6 +25,21 @@ class _NewsPageState extends State<NewsPage>
   Widget build(BuildContext context) {
     super.build(context);
     final user = Provider.of<User>(context);
+
+    void _showPostPanel() {
+      showModalBottomSheet(
+          context: context,
+          builder: (context) {
+            return Container(
+              padding: EdgeInsets.symmetric(
+                vertical: 20,
+                horizontal: 50,
+              ),
+              child: PostForm(),
+            );
+          });
+    }
+
     return StreamProvider<List<Post>>.value(
       value: DatabaseService().posts,
       child: Scaffold(
@@ -117,15 +132,11 @@ class _NewsPageState extends State<NewsPage>
             ],
           ),
         ),
-        body: PostMessages('', 'b', 'c', 'd'),
+        body: Container(),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
-            DatabaseService(uid: user.uid).createPost(
-              'Texto do Post, testando agora vai',
-              'useravatar',
-              'Vinicius Mioto',
-            );
+            _showPostPanel();
           },
           backgroundColor: Theme.of(context).accentColor,
         ),
