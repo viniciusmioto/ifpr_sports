@@ -13,7 +13,7 @@ class _PostListState extends State<PostList> {
   Widget build(BuildContext context) {
     final posts = Provider.of<List<Post>>(context);
     return ListView.builder(
-      reverse: true,
+      reverse: false, 
       itemCount: posts.length,
       itemBuilder: (context, index) {
         return PostTile(

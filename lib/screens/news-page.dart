@@ -26,16 +26,17 @@ class _NewsPageState extends State<NewsPage>
     super.build(context);
     void _showPostPanel() {
       showModalBottomSheet(
-          context: context,
-          builder: (context) {
-            return Container(
-              padding: EdgeInsets.symmetric(
-                vertical: 20,
-                horizontal: 50,
-              ),
-              child: PostForm(),
-            );
-          });
+        context: context,
+        builder: (context) {
+          return Container(
+            padding: EdgeInsets.symmetric(
+              vertical: 20,
+              horizontal: 50,
+            ),
+            child: PostForm(),
+          );
+        },
+      );
     }
 
     return StreamProvider<List<Post>>.value(
