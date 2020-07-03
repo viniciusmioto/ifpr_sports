@@ -199,11 +199,13 @@ class _SignUpPageState extends State<SignUpPage> {
                                   setState(() => loading = true);
                                   dynamic result =
                                       await _auth.registerEmailAndPassword(
-                                          email,
-                                          password,
-                                          nome,
-                                          modalidade,
-                                          avatarUrl);
+                                    email,
+                                    password,
+                                    nome,
+                                    modalidade,
+                                    avatarUrl ??
+                                        'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
+                                  );
                                   if (result == null) {
                                     setState(() {
                                       error = 'Erro ao validar campos!';

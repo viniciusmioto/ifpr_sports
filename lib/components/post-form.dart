@@ -96,7 +96,8 @@ class _PostFormState extends State<PostForm> {
                               if (_formKey.currentState.validate()) {
                                 await DatabaseService(uid: user.uid).createPost(
                                   text,
-                                  userData.avatarUrl,
+                                  userData.avatarUrl ??
+                                      'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
                                   userData.nome,
                                   '2020',
                                 );
