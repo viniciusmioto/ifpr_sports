@@ -49,7 +49,6 @@ class _EditProfileForm extends State<EditProfileForm> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             UserData userData = snapshot.data;
-
             return Padding(
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
               child: ListView(

@@ -30,47 +30,48 @@ class _PostTileState extends State<PostTile> {
         cor = _star ? Colors.green : Colors.grey;
       });
     }
+
     return Card(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          ListTile(
+            leading: CircleAvatar(
+              backgroundImage: NetworkImage(widget.post.useravatar),
+            ),
+            title: Text(widget.post.username),
+            subtitle: Text('2020'),
+            trailing: Icon(Icons.more_vert),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              child: Text(
+                widget.post.text,
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ),
+          ButtonTheme(
+            buttonColor: Colors.greenAccent,
+            child: ButtonBar(
               children: <Widget>[
-                ListTile(
-                  leading: CircleAvatar(
-                    backgroundImage: NetworkImage(widget.post.useravatar),
+                IconButton(
+                  icon: Icon(
+                    Icons.star,
+                    color: cor,
                   ),
-                  title: Text(widget.post.username),
-                  subtitle: Text('2020'),
-                  trailing: Icon(Icons.more_vert),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    child: Text(
-                      widget.post.text,
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-                ButtonTheme(
-                  buttonColor: Colors.greenAccent,
-                  child: ButtonBar(
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(
-                          Icons.star,
-                          color: cor,
-                        ),
-                        onPressed: () {
-                          _changeColor();
-                        },
-                      )
-                    ],
-                  ),
-                ),
+                  onPressed: () {
+                    _changeColor();
+                  },
+                )
               ],
             ),
-          );
+          ),
+        ],
+      ),
+    );
   }
 }
