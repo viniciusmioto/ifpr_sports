@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ifsports/classes/post.dart';
+import 'package:ifsports/components/post-tile.dart';
+import 'package:provider/provider.dart';
 
 class PostMessages extends StatefulWidget {
   final String urlImage;
@@ -13,67 +16,21 @@ class PostMessages extends StatefulWidget {
 }
 
 class _PostMessagesState extends State<PostMessages> {
-  bool _star = false;
-  Color cor = Colors.grey;
-
+  
   @override
   Widget build(BuildContext context) {
-    void _switchStar() {
-      if (_star == true) {
-        _star = false;
-      } else {
-        _star = true;
-      }
-    }
+    final posts = Provider.of<List<Post>>(context);
+    posts.forEach((post) {
+      print(post.text);
+      print(post.useravatar);
+      print(post.username);
+    });
+    
 
-    void _changeColor() {
-      setState(() {
-        _switchStar();
-        cor = _star ? Colors.green : Colors.grey;
-      });
-    }
-
-    return Card(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          ListTile(
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage(widget.urlImage),
-            ),
-            title: Text(widget.user),
-            subtitle: Text(widget.time),
-            trailing: Icon(Icons.more_vert),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              child: Text(
-                widget.message,
-                style: TextStyle(
-                  fontSize: 16,
-                ),
-              ),
-            ),
-          ),
-          ButtonTheme(
-            buttonColor: Colors.greenAccent,
-            child: ButtonBar(
-              children: <Widget>[
-                IconButton(
-                  icon: Icon(
-                    Icons.star,
-                    color: cor,
-                  ),
-                  onPressed: () {
-                    _changeColor();
-                  },
-                )
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
+    return ListView.builder(
+        itemCount: posts.length,
+        itemBuilder: (context, index) {
+          return PostTile(post: posts[index]);
+        });
   }
 }

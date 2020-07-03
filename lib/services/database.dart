@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ifsports/classes/member.dart';
+import 'package:ifsports/classes/post.dart';
 import 'package:ifsports/classes/user.dart';
 
 class DatabaseService {
@@ -9,6 +10,21 @@ class DatabaseService {
   // colletion reference
   final CollectionReference membersCollection =
       Firestore.instance.collection('members');
+
+  final CollectionReference postsCollection =
+      Firestore.instance.collection('posts');
+
+  Future createPost(
+    String text,
+    String useravatar,
+    String username,
+  ) async {
+    return await postsCollection.document().setData({
+      'text': text,
+      'username': username,
+      'useravatar': useravatar,
+    });
+  }
 
   Future updateUserData(
     String nome,
@@ -54,7 +70,22 @@ class DatabaseService {
 
   // get user doc stream
   Stream<UserData> get membersData {
-    return membersCollection.document(uid).snapshots()
-    .map(_userDataFromSnapshot);
+    return membersCollection
+        .document(uid)
+        .snapshots()
+        .map(_userDataFromSnapshot);
+  }
+
+  List<Post> _postListFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.documents.map((doc) {
+      return Post(
+          text: doc.data['text'] ?? '',
+          username: doc.data['username'] ?? '',
+          useravatar: doc.data['useravatar'] ?? null);
+    }).toList();
+  }
+
+  Stream<List<Post>> get posts {
+    return postsCollection.snapshots().map(_postListFromSnapshot);
   }
 }
