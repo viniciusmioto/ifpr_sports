@@ -12,8 +12,9 @@ class PostForm extends StatefulWidget {
 
 class _PostFormState extends State<PostForm> {
   final _formKey = GlobalKey<FormState>();
-
+  bool loading = false;
   String text;
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
@@ -100,13 +101,19 @@ class _PostFormState extends State<PostForm> {
                             ),
                             onPressed: () async {
                               if (_formKey.currentState.validate()) {
-                                await DatabaseService(uid: user.uid).createPost(
+                                setState(() => loading = true);
+                                dynamic result =
+                                    await DatabaseService(uid: user.uid)
+                                        .createPost(
                                   text,
                                   userData.avatarUrl ??
                                       'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
                                   userData.nome,
                                   '2020',
                                 );
+                                if (result == null) {
+                                  setState(() => error = 'Erro ao publicar...');
+                                }
                                 Navigator.pop(context);
                               }
                             },
@@ -116,6 +123,7 @@ class _PostFormState extends State<PostForm> {
                     ],
                   ),
                 ),
+                Text(error),
               ],
             );
           } else {
