@@ -36,27 +36,33 @@ class _PostFormState extends State<PostForm> {
                         ),
                       ),
                       SizedBox(height: 10),
-                      TextFormField(
-                        autofocus: true,
-                        onChanged: (value) {
-                          setState(() => text = value);
-                        },
-                        validator: (value) =>
-                            value.isEmpty ? 'Insira um texto' : null,
-                        keyboardType: TextInputType.text,
-                        decoration: InputDecoration(
-                          labelText: "Mensagem",
-                          labelStyle: TextStyle(
-                            color: Colors.black45,
-                            fontWeight: FontWeight.w400,
+                      Container(
+                        height: 100,
+                        child: TextFormField(
+                          expands: true,
+                          minLines: null,
+                          maxLines: null,
+                          autofocus: true,
+                          onChanged: (value) {
+                            setState(() => text = value);
+                          },
+                          validator: (value) =>
+                              value.isEmpty ? 'Insira um texto' : null,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            labelText: "Mensagem",
+                            labelStyle: TextStyle(
+                              color: Colors.black45,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 18,
+                            ),
+                          ),
+                          style: TextStyle(
                             fontSize: 18,
                           ),
                         ),
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
                       ),
-                      SizedBox(height: 100),
+                      SizedBox(height: 40),
                       Container(
                         height: 40,
                         alignment: Alignment.centerLeft,
