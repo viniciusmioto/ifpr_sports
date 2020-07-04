@@ -25,15 +25,17 @@ class _NewsPageState extends State<NewsPage>
   Widget build(BuildContext context) {
     super.build(context);
     void _showPostPanel() {
-      showModalBottomSheet(
+      showDialog(
         context: context,
         builder: (context) {
-          return Container(
-            padding: EdgeInsets.symmetric(
-              vertical: 20,
-              horizontal: 50,
+          return Padding(
+            padding: const EdgeInsets.fromLTRB(20, 40, 20, 100),
+            child: Scaffold(
+              body: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: PostForm(),
+              ),
             ),
-            child: PostForm(),
           );
         },
       );
