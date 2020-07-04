@@ -127,8 +127,8 @@ class _NewsPageState extends State<NewsPage>
                       },
                     ),
                     CustomListTile(
-                      Icons.info_outline,
-                      'Info',
+                      Icons.info,
+                      'Sobre',
                       () => {
                         showAboutDialog(
                             context: context,
