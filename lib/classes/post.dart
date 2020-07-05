@@ -4,6 +4,7 @@ class Post {
   final String username;
   final String useravatar;
   final DateTime dateTime;
+  final String userid;
 
   Post({
     this.pid,
@@ -11,5 +12,6 @@ class Post {
     this.username,
     this.useravatar,
     this.dateTime,
+    this.userid,
   });
 }

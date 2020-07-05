@@ -19,12 +19,14 @@ class DatabaseService {
     String useravatar,
     String username,
     String datetime,
+    String userid,
   ) async {
     return await postsCollection.document().setData({
       'text': text,
       'username': username,
       'useravatar': useravatar,
       'datetime': datetime,
+      'userid':userid,
     });
   }
 
