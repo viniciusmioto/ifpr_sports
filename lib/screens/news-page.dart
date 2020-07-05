@@ -48,7 +48,7 @@ class _NewsPageState extends State<NewsPage>
         : StreamProvider<List<Post>>.value(
             value: DatabaseService().posts,
             child: Scaffold(
-              backgroundColor: Colors.grey.shade300,
+              backgroundColor: Theme.of(context).backgroundColor,
               appBar: AppBar(
                 title: Text(
                   'SPORTIF',
