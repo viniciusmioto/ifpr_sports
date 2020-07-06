@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ifsports/classes/user.dart';
 import 'package:ifsports/components/edit-profile.dart';
-import 'package:ifsports/components/loading.dart';
 import 'package:ifsports/services/database.dart';
 import 'package:provider/provider.dart';
 
@@ -70,7 +69,9 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             );
           } else {
-            return Loading();
+            return Container(
+              child: Text('usuário anônimo'),
+            );
           }
         },
       ),

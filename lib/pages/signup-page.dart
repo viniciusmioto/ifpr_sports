@@ -161,6 +161,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         SizedBox(height: 10),
                         TextFormField(
+                          initialValue: 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
                           autofocus: false,
                           onChanged: (value) {
                             setState(() => avatarUrl = value);
