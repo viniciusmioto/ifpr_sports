@@ -18,15 +18,15 @@ class DatabaseService {
     String text,
     String useravatar,
     String username,
-    String datetime,
     String userid,
+    String datehour,
   ) async {
     return await postsCollection.document().setData({
       'text': text,
       'username': username,
       'useravatar': useravatar,
-      'datetime': datetime,
-      'userid':userid,
+      'userid': userid,
+      'datehour': datehour,
     });
   }
 
@@ -83,9 +83,11 @@ class DatabaseService {
   List<Post> _postListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map((doc) {
       return Post(
-          text: doc.data['text'] ?? '',
-          username: doc.data['username'] ?? '',
-          useravatar: doc.data['useravatar'] ?? null);
+        text: doc.data['text'] ?? '',
+        username: doc.data['username'] ?? '',
+        datehour: doc.data['datehour'] ?? null,
+        useravatar: doc.data['useravatar'] ?? null,
+      );
     }).toList();
   }
 

@@ -14,6 +14,7 @@ class _PostFormState extends State<PostForm> {
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
   String text;
+  String date = '';
   String error = '';
 
   @override
@@ -63,6 +64,27 @@ class _PostFormState extends State<PostForm> {
                           ),
                         ),
                       ),
+                      SizedBox(height: 10),
+                      TextFormField(
+                        validator: (value) =>
+                            value.isEmpty ? 'data e hora' : null,
+                        autofocus: false,
+                        onChanged: (value) {
+                          setState(() => date = value);
+                        },
+                        keyboardType: TextInputType.datetime,
+                        decoration: InputDecoration(
+                          labelText: 'Data e Hora',
+                          labelStyle: TextStyle(
+                            color: Colors.black45,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 18,
+                          ),
+                        ),
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
                       SizedBox(height: 40),
                       Container(
                         height: 40,
@@ -109,8 +131,8 @@ class _PostFormState extends State<PostForm> {
                                   userData.avatarUrl ??
                                       'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
                                   userData.nome,
-                                  '2020',
                                   user.uid,
+                                  date,
                                 );
                                 if (result == null) {
                                   setState(() => error = 'Erro ao publicar...');

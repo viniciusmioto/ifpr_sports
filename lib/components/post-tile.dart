@@ -40,7 +40,7 @@ class _PostTileState extends State<PostTile> {
               backgroundImage: NetworkImage(widget.post.useravatar),
             ),
             title: Text(widget.post.username),
-            subtitle: Text('2020'),
+            subtitle: Text(widget.post.datehour),
             trailing: Icon(Icons.more_vert),
           ),
           Padding(
