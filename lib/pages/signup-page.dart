@@ -17,9 +17,22 @@ class _SignUpPageState extends State<SignUpPage> {
   String email = '';
   String password = '';
   String nome = '';
-  String modalidade = '';
+  String modalidade = 'Atletismo';
   String avatarUrl = '';
   String error = '';
+
+  final List<String> modalidades = [
+    'Treinador',
+    'Atletismo',
+    'Basquete',
+    'Futebol',
+    'Futsal',
+    'Handebol',
+    'Tênis',
+    'Tênis de Mesa',
+    'Vôlei',
+    'Xadrez',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -126,26 +139,25 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                         ),
                         SizedBox(height: 10),
-                        TextFormField(
-                          autofocus: false,
-                          validator: (value) => value.isEmpty
-                              ? 'Informe ao menos uma modalidade'
-                              : null,
-                          onChanged: (value) {
-                            setState(() => modalidade = value);
-                          },
-                          keyboardType: TextInputType.text,
+                        DropdownButtonFormField(
                           decoration: InputDecoration(
-                            labelText: "MODALIDADES",
+                            labelText: "MODALIDADE",
                             labelStyle: TextStyle(
                               color: Colors.black45,
                               fontWeight: FontWeight.w400,
-                              fontSize: 20,
+                              fontSize: 18,
                             ),
                           ),
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
+                          value: modalidade ?? 'Futebol',
+                          items: modalidades.map((modalidade) {
+                            return DropdownMenuItem(
+                              value: modalidade,
+                              child: Text('$modalidade'),
+                            );
+                          }).toList(),
+                          onChanged: (value) {
+                            setState(() => modalidade = value);
+                          },
                         ),
                         SizedBox(height: 10),
                         TextFormField(
