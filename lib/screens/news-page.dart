@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ifsports/classes/post.dart';
 import 'package:ifsports/components/custom-list-tile.dart';
-import 'package:ifsports/components/loading.dart';
 import 'package:ifsports/components/post-form.dart';
 import 'package:ifsports/components/post-list.dart';
 import 'package:ifsports/pages/members-page.dart';
@@ -43,9 +42,7 @@ class _NewsPageState extends State<NewsPage>
       );
     }
 
-    return loading
-        ? Loading()
-        : StreamProvider<List<Post>>.value(
+    return StreamProvider<List<Post>>.value(
             value: DatabaseService().posts,
             child: Scaffold(
               backgroundColor: Theme.of(context).backgroundColor,
@@ -178,7 +175,7 @@ class _NewsPageState extends State<NewsPage>
                   ],
                 ),
               ),
-              body: loading ? Loading() : PostList(),
+              body: PostList(),
               floatingActionButton: FloatingActionButton(
                 child: Icon(Icons.add),
                 onPressed: () {
