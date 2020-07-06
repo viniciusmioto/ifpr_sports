@@ -3,7 +3,7 @@ class Post {
   final String text;
   final String username;
   final String useravatar;
-  final DateTime dateTime;
+  final String datehour;
   final String userid;
 
   Post({
@@ -11,7 +11,7 @@ class Post {
     this.text,
     this.username,
     this.useravatar,
-    this.dateTime,
     this.userid,
+    this.datehour,
   });
 }
