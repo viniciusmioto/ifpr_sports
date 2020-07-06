@@ -72,7 +72,7 @@ class _PostFormState extends State<PostForm> {
                         onChanged: (value) {
                           setState(() => date = value);
                         },
-                        keyboardType: TextInputType.datetime,
+                        keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                           labelText: 'Data e Hora',
                           labelStyle: TextStyle(
