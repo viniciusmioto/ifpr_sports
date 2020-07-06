@@ -43,9 +43,7 @@ class _NewsPageState extends State<NewsPage>
       );
     }
 
-    return loading
-        ? Loading()
-        : StreamProvider<List<Post>>.value(
+    return StreamProvider<List<Post>>.value(
             value: DatabaseService().posts,
             child: Scaffold(
               backgroundColor: Theme.of(context).backgroundColor,
@@ -178,7 +176,7 @@ class _NewsPageState extends State<NewsPage>
                   ],
                 ),
               ),
-              body: loading ? Loading() : PostList(),
+              body: PostList(),
               floatingActionButton: FloatingActionButton(
                 child: Icon(Icons.add),
                 onPressed: () {
