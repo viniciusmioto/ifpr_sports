@@ -53,12 +53,6 @@ class _NewsPageState extends State<NewsPage>
                     color: Colors.white,
                   ),
                 ),
-                actions: [
-                  IconButton(
-                    icon: Icon(Icons.refresh),
-                    onPressed: () {},
-                  ),
-                ],
               ),
               drawer: Drawer(
                 child: ListView(

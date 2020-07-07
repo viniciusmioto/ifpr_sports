@@ -40,10 +40,15 @@ class _ProfilePageState extends State<ProfilePage> {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(10.0),
-                  child: SizedBox(
-                    child: Image.network(
-                      snapshot.data.avatarUrl,
-                      height: 150,
+                  child: Container(
+                    height: 200,
+                    child: CircleAvatar(
+                      radius: 50.0,
+                      child: ClipRRect(
+                        borderRadius:BorderRadius.circular(100),
+                        child: Image.network("${snapshot.data.avatarUrl}"),
+                      ),
+                      backgroundColor: Colors.transparent,
                     ),
                   ),
                 ),
