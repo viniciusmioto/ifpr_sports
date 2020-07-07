@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ifsports/classes/atleta.dart';
 import 'package:ifsports/classes/member.dart';
+import 'package:ifsports/provider/atleta-provider.dart';
+import 'package:provider/provider.dart';
 
 class MemberTile extends StatelessWidget {
   final Member member;
@@ -26,8 +29,25 @@ class MemberTile extends StatelessWidget {
             onPressed: () {
               showDialog(
                 context: context,
-                builder: (ctx) => CupertinoAlertDialog(
+                builder: (ctx) => AlertDialog(
                   title: Text(member.email),
+                  actions: [
+                    IconButton(
+                      icon: Icon(Icons.person_add),
+                      onPressed: () {
+                        Provider.of<AtletasProvider>(context, listen: false)
+                            .put(
+                          Atleta(
+                            id: member.email,
+                            name: member.nome,
+                            modalidade: member.modalidade,
+                            avatarUrl: member.avatarUrl,
+                          ),
+                        );
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
                 ),
               );
             },
