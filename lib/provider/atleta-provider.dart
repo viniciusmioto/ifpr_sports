@@ -55,13 +55,20 @@ class AtletasProvider with ChangeNotifier {
         ),
       );
     }
+    save();
     notifyListeners();
   }
 
   void remove(Atleta atleta) {
     if (atleta != null && atleta.id != null) {
       _items.remove(atleta.id);
+      save();
       notifyListeners();
     }
+  }
+
+  save() async {
+    var prefs = await SharedPreferences.getInstance();
+    await prefs.setString('data', jsonEncode(_items));
   }
 }
