@@ -25,10 +25,11 @@ class MemberTile extends StatelessWidget {
           trailing: IconButton(
             onPressed: () {
               showDialog(
-                  context: context,
-                  builder: (ctx) => CupertinoAlertDialog(
-                        title: Text(member.email),
-                      ));
+                context: context,
+                builder: (ctx) => CupertinoAlertDialog(
+                  title: Text(member.email),
+                ),
+              );
             },
             icon: Icon(Icons.more_vert),
           ),
