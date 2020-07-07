@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ifsports/components/atleta-tile.dart';
+import 'package:ifsports/pages/members-page.dart';
 import 'package:ifsports/provider/atleta-provider.dart';
 import 'package:ifsports/routes/app-routes.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,14 @@ class TeamPage extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.search),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => MembersPage(),
+                ),
+              );
+            },
           ),
         ],
       ),
