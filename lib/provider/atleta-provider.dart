@@ -1,14 +1,21 @@
+import 'dart:convert';
 import 'dart:math';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
-import 'package:ifsports/data/dummy_atletas.dart';
 import 'package:ifsports/classes/atleta.dart';
 
 class AtletasProvider with ChangeNotifier {
-  Map<String, Atleta> _items = {...DUMMY_ATLETAS};
+  Map<String, Atleta> _items = {};
 
-  List<Atleta> get all {
-    return [..._items.values];
+  Future<List<Atleta>> get all async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var data = prefs.getString('data');
+    if (data != null) {
+      Iterable decoded = jsonDecode(data);
+      List<Atleta> result = decoded.map((x) => Atleta.fromJson(x)).toList();
+      return result;
+    }
+    return null;
   }
 
   int get count {
@@ -36,7 +43,6 @@ class AtletasProvider with ChangeNotifier {
           avatarUrl: atleta.avatarUrl,
         ),
       );
-      
     } else {
       final id = Random().nextDouble().toString();
       _items.putIfAbsent(
@@ -53,11 +59,9 @@ class AtletasProvider with ChangeNotifier {
   }
 
   void remove(Atleta atleta) {
-    if(atleta != null && atleta.id != null) {
+    if (atleta != null && atleta.id != null) {
       _items.remove(atleta.id);
       notifyListeners();
     }
   }
-
 }
-
