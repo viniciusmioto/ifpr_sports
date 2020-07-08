@@ -45,7 +45,6 @@ class AtletaForm extends StatelessWidget {
               final isValid = _form.currentState.validate();
               if (isValid) {
                 _form.currentState.save();
-
                 Provider.of<AtletasProvider>(context, listen: false).put(
                   Atleta(
                     id: _formData['id'],

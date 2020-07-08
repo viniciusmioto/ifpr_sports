@@ -12,10 +12,12 @@ class AtletasProvider with ChangeNotifier {
   }
 
   Future<List<Atleta>> get all async {
+    _loadFromPrefs();
     return [..._athletas];
   }
 
   int get count {
+    _loadFromPrefs();
     return _athletas.length;
   }
 
