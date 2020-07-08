@@ -18,48 +18,50 @@ class AtletaTile extends StatelessWidget {
             backgroundImage: NetworkImage(atleta.avatarUrl),
           );
 
-    return ListTile(
-      leading: avatar,
-      title: Text(atleta.name),
-      subtitle: Text(atleta.modalidade),
-      trailing: Container(
-        child: IconButton(
-          icon: Icon(Icons.delete),
-          color: Colors.redAccent,
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (ctx) => AlertDialog(
-                title: Text('Excluir Usuário'),
-                content: Text('Confirmar Exclusão'),
-                actions: <Widget>[
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.of(context).pop(true);
-                    },
-                    child: Text('CANCELAR'),
-                  ),
-                  FlatButton(
-                    color: Colors.redAccent,
-                    onPressed: () {
-                      Navigator.of(context).pop(false);
-                    },
-                    child: Text(
-                      'EXCLUIR',
-                      style: TextStyle(
-                        color: Colors.white,
+    return Card(
+      child: ListTile(
+        leading: avatar,
+        title: Text(atleta.name),
+        subtitle: Text(atleta.modalidade),
+        trailing: Container(
+          child: IconButton(
+            icon: Icon(Icons.delete),
+            color: Colors.redAccent,
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                  title: Text('Excluir Usuário'),
+                  content: Text('Confirmar Exclusão'),
+                  actions: <Widget>[
+                    FlatButton(
+                      onPressed: () {
+                        Navigator.of(context).pop(true);
+                      },
+                      child: Text('CANCELAR'),
+                    ),
+                    FlatButton(
+                      color: Colors.redAccent,
+                      onPressed: () {
+                        Navigator.of(context).pop(false);
+                      },
+                      child: Text(
+                        'EXCLUIR',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ).then(
-              (confirmed) {
-                Provider.of<AtletasProvider>(context, listen: false)
-                    .removeAt(index);
-              },
-            );
-          },
+                  ],
+                ),
+              ).then(
+                (confirmed) {
+                  Provider.of<AtletasProvider>(context, listen: false)
+                      .removeAt(index);
+                },
+              );
+            },
+          ),
         ),
       ),
     );

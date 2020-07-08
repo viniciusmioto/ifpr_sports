@@ -16,7 +16,8 @@ class TeamPage extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.search),
-            onPressed: () {},
+            onPressed: () {
+            },
           ),
         ],
       ),

@@ -4,7 +4,7 @@ import 'package:ifsports/classes/atleta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AtletasProvider with ChangeNotifier {
-  var _athletas = new List<Atleta>();
+  var _athletas = List<Atleta>();
   SharedPreferences _prefs;
 
   AtletasProvider() {
@@ -13,7 +13,7 @@ class AtletasProvider with ChangeNotifier {
 
   Future<List<Atleta>> get all async {
     _loadFromPrefs();
-    return [..._athletas];
+    return _athletas;
   }
 
   int get count {
@@ -37,7 +37,6 @@ class AtletasProvider with ChangeNotifier {
     if (atleta.id != null && atleta.id.trim().isNotEmpty) {
       _athletas.add(
         Atleta(
-          id: atleta.id,
           name: atleta.name,
           modalidade: atleta.modalidade,
           avatarUrl: atleta.avatarUrl,
@@ -54,7 +53,6 @@ class AtletasProvider with ChangeNotifier {
       _athletas.remove(atleta);
       _saveToPrefs();
       _loadFromPrefs();
-      print(_athletas);
       notifyListeners();
     }
   }
@@ -64,7 +62,6 @@ class AtletasProvider with ChangeNotifier {
       _athletas.removeAt(index);
       _saveToPrefs();
       _loadFromPrefs();
-      print(_athletas);
       notifyListeners();
     }
   }
