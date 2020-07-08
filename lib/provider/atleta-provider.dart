@@ -25,6 +25,10 @@ class AtletasProvider with ChangeNotifier {
     return _athletas.elementAt(index);
   }
 
+  int byAtleta(Atleta atleta) {
+    return _athletas.indexOf(atleta);
+  }
+
   void put(Atleta atleta) {
     if (Atleta == null) {
       return;
@@ -50,6 +54,17 @@ class AtletasProvider with ChangeNotifier {
       _athletas.remove(atleta);
       _saveToPrefs();
       _loadFromPrefs();
+      print(_athletas);
+      notifyListeners();
+    }
+  }
+
+  void removeAt(int index) {
+    if (index != null) {
+      _athletas.removeAt(index);
+      _saveToPrefs();
+      _loadFromPrefs();
+      print(_athletas);
       notifyListeners();
     }
   }

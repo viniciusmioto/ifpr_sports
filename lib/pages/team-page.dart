@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:ifsports/components/atleta-tile.dart';
 import 'package:ifsports/pages/members-page.dart';
 import 'package:ifsports/provider/atleta-provider.dart';
-import 'package:ifsports/routes/app-routes.dart';
 import 'package:provider/provider.dart';
 
 class TeamPage extends StatelessWidget {
@@ -17,14 +16,7 @@ class TeamPage extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.search),
-            onPressed: () {
-              Navigator.push(
-                context,
-                CupertinoPageRoute(
-                  builder: (context) => MembersPage(),
-                ),
-              );
-            },
+            onPressed: () {},
           ),
         ],
       ),
@@ -34,11 +26,14 @@ class TeamPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).pushNamed(
-            AppRoutes.USER_FORM,
+          Navigator.push(
+            context,
+            CupertinoPageRoute(
+              builder: (context) => MembersPage(),
+            ),
           );
         },
-        child: Icon(Icons.add),
+        child: Icon(Icons.person_add),
       ),
     );
   }
