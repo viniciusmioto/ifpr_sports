@@ -31,6 +31,7 @@ class MemberTile extends StatelessWidget {
                 context: context,
                 builder: (ctx) => AlertDialog(
                   title: Text(member.email),
+                  content: Text('clique para adicionar ao seu time'),
                   actions: [
                     IconButton(
                       icon: Icon(Icons.person_add),
