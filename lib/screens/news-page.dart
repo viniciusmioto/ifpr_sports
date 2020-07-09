@@ -30,25 +30,7 @@ class _NewsPageState extends State<NewsPage>
       showDialog(
         context: context,
         builder: (context) {
-          return Padding(
-            padding: const EdgeInsets.fromLTRB(20, 40, 20, 200),
-            child: Scaffold(
-              appBar: AppBar(
-                centerTitle: true,
-                title: Text('Nova Postagem'),
-                actions: [
-                  IconButton(
-                    icon: Icon(Icons.public),
-                    onPressed: () {},
-                  )
-                ],
-              ),
-              body: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: PostForm(),
-              ),
-            ),
-          );
+          return PostForm();
         },
       );
     }
