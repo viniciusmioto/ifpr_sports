@@ -14,6 +14,7 @@ class _ChampionshipsPageState extends State<ChampionshipsPage>
     super.build(context);
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text("COMPETIÇÕES"),
         leading: Icon(
           Icons.flag,

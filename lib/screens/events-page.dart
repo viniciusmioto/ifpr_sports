@@ -12,6 +12,7 @@ class _EventsPageState extends State<EventsPage>
     super.build(context);
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text("EVENTOS"),
         leading: Icon(
           Icons.event_note,
@@ -23,22 +24,22 @@ class _EventsPageState extends State<EventsPage>
             Colors.redAccent,
             "assets/calendario.png",
             "BOLSA ATLETA",
-            "As incrições para o BOLSA ATLETA estão abertas e vão até o dia 19/04.\n" + 
-            "Os documentos necessários estão descritos no edital, disponível na página do IFPR.",
+            "As incrições para o BOLSA ATLETA estão abertas e vão até o dia 19/04.\n" +
+                "Os documentos necessários estão descritos no edital, disponível na página do IFPR.",
           ),
           EventsInfo(
             Colors.blueAccent,
             "assets/eventos.png",
             "DIA DO ALUNO",
-            "No dia do Aluno (11/08) serão realizados jogos e competições como o interclasse, organizados pelos estudantes.\n" + 
-            "Terá almoço ao meio-dia e lanche às 15h30.",
+            "No dia do Aluno (11/08) serão realizados jogos e competições como o interclasse, organizados pelos estudantes.\n" +
+                "Terá almoço ao meio-dia e lanche às 15h30.",
           ),
           EventsInfo(
             Colors.deepOrange,
             "assets/seletiva.png",
             "CAMPEONATO DE FUTSAL",
-            "No dia 15/06 será realizado um torneio de fustal às 18h00, entre Professores e Alunos, acontecerá no ginásio.\n" + 
-            "Quem se interessar, favor avisar o professor de Educação Física.",
+            "No dia 15/06 será realizado um torneio de fustal às 18h00, entre Professores e Alunos, acontecerá no ginásio.\n" +
+                "Quem se interessar, favor avisar o professor de Educação Física.",
           ),
         ],
       ),

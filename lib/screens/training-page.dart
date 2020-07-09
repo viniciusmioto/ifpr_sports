@@ -12,6 +12,7 @@ class _TrainingPageState extends State<TrainingPage>
     super.build(context);
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text("TREINOS"),
         leading: Icon(
           Icons.access_time,
@@ -33,7 +34,7 @@ class _TrainingPageState extends State<TrainingPage>
             'Segunda e Quarta;',
             '7h30 - 9h30;',
             'Ginásio.',
-            Colors.deepOrange,
+            Colors.deepOrange[600],
           ),
           SportsDescriptions(
             'FUTEBOL',
@@ -41,7 +42,7 @@ class _TrainingPageState extends State<TrainingPage>
             'Sábados;',
             '7h30 - 9h30;',
             'Campo de Futebol.',
-            Colors.lime,
+            Colors.green,
           ),
           SportsDescriptions(
             'FUTSAL',
@@ -49,7 +50,7 @@ class _TrainingPageState extends State<TrainingPage>
             'Segunda, Quarta e Sexta;',
             '13h30 - 15h30;',
             'Ginásio.',
-            Colors.blue,
+            Colors.blue[400],
           ),
           SportsDescriptions(
             'HANDEBOL',
@@ -57,7 +58,7 @@ class _TrainingPageState extends State<TrainingPage>
             'Terça e Sexta;',
             '9h30 - 11h45;',
             'Ginásio.',
-            Colors.green,
+            Colors.green[700],
           ),
           SportsDescriptions(
             'TÊNIS',
@@ -65,7 +66,7 @@ class _TrainingPageState extends State<TrainingPage>
             'Terça, Quinta e Sábado;',
             '14h30 - 16h30;',
             'Quadra de Tênis.',
-            Colors.amber,
+            Colors.amber[800],
           ),
           SportsDescriptions(
             'TÊNIS DE MESA',

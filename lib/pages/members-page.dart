@@ -5,13 +5,13 @@ import 'package:ifsports/services/database.dart';
 import 'package:provider/provider.dart';
 
 class MembersPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<Member>>.value(
       value: DatabaseService().members,
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: false,
           title: Text('Membros'),
           actions: [
             IconButton(

@@ -12,12 +12,12 @@ class TeamPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: false,
         title: Text('Time'),
         actions: [
           IconButton(
             icon: Icon(Icons.search),
-            onPressed: () {
-            },
+            onPressed: () {},
           ),
         ],
       ),

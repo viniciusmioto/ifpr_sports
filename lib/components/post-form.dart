@@ -14,7 +14,6 @@ class _PostFormState extends State<PostForm> {
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
   String text;
-  String date = '';
   String error = '';
 
   @override
@@ -31,15 +30,9 @@ class _PostFormState extends State<PostForm> {
                   key: _formKey,
                   child: Column(
                     children: <Widget>[
-                      Text(
-                        'Nova Postagem',
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
                       SizedBox(height: 10),
                       Container(
-                        height: 100,
+                        height: 120,
                         child: TextFormField(
                           expands: true,
                           minLines: null,
@@ -64,28 +57,7 @@ class _PostFormState extends State<PostForm> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
-                      TextFormField(
-                        validator: (value) =>
-                            value.isEmpty ? 'data e hora' : null,
-                        autofocus: false,
-                        onChanged: (value) {
-                          setState(() => date = value);
-                        },
-                        keyboardType: TextInputType.text,
-                        decoration: InputDecoration(
-                          labelText: 'Data e Hora',
-                          labelStyle: TextStyle(
-                            color: Colors.black45,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 18,
-                          ),
-                        ),
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
-                      SizedBox(height: 40),
+                      SizedBox(height: 60),
                       Container(
                         height: 40,
                         alignment: Alignment.centerLeft,
@@ -132,7 +104,7 @@ class _PostFormState extends State<PostForm> {
                                       'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
                                   userData.nome,
                                   user.uid,
-                                  date,
+                                  'date',
                                 );
                                 if (result == null) {
                                   setState(() => error = 'Erro ao publicar...');
