@@ -1,7 +1,5 @@
-import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:ifsports/classes/post.dart';
 import 'package:ifsports/components/custom-list-tile.dart';
 import 'package:ifsports/components/post-form.dart';
@@ -24,19 +22,6 @@ class _NewsPageState extends State<NewsPage>
     with AutomaticKeepAliveClientMixin {
   final AuthService _auth = AuthService();
   bool loading = false;
-
-  void getTime() async {
-    Response response =
-        await get('http://worldtimeapi.org/api/timezone/America/Sao_Paulo');
-    Map data = jsonDecode(response.body);
-    String datetime = data['datetime'];
-    String utcOffset = data['utc_offset'].substring(1, 3);
-    DateTime now = DateTime.parse(datetime);
-    print(utcOffset);
-    now = now.add(Duration(hours: int.parse(utcOffset) * -1));
-    String date = now.toString().substring(0, 16);
-    print(date);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -200,7 +185,6 @@ class _NewsPageState extends State<NewsPage>
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
-            getTime();
             _showPostPanel();
           },
           backgroundColor: Theme.of(context).accentColor,

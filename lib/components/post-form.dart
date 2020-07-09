@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ifsports/classes/user.dart';
 import 'package:ifsports/components/loading.dart';
 import 'package:ifsports/services/database.dart';
+import 'package:ifsports/services/world-time.dart';
 import 'package:provider/provider.dart';
 
 class PostForm extends StatefulWidget {
@@ -12,6 +13,7 @@ class PostForm extends StatefulWidget {
 
 class _PostFormState extends State<PostForm> {
   final _formKey = GlobalKey<FormState>();
+  WorldTime worldTime = WorldTime();
   bool loading = false;
   String text;
   String error = '';
@@ -19,6 +21,7 @@ class _PostFormState extends State<PostForm> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
+    worldTime.getTime();
     return StreamBuilder<UserData>(
         stream: DatabaseService(uid: user.uid).membersData,
         builder: (context, snapshot) {
@@ -104,7 +107,7 @@ class _PostFormState extends State<PostForm> {
                                       'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
                                   userData.nome,
                                   user.uid,
-                                  'date',
+                                  worldTime.postDateTime,
                                 );
                                 if (result == null) {
                                   setState(() => error = 'Erro ao publicar...');
