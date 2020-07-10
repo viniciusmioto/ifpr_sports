@@ -13,7 +13,7 @@ class _TrainingPageState extends State<TrainingPage>
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("TREINOS"),
+        title: Text("Treinos"),
         leading: Icon(
           Icons.access_time,
         ),

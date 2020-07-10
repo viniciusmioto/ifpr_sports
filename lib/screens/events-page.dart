@@ -13,7 +13,7 @@ class _EventsPageState extends State<EventsPage>
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("EVENTOS"),
+        title: Text("Eventos"),
         leading: Icon(
           Icons.event_note,
         ),

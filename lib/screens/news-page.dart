@@ -42,7 +42,7 @@ class _NewsPageState extends State<NewsPage>
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            'SPORTIF',
+            'SportIF',
             style: TextStyle(
               color: Colors.white,
             ),

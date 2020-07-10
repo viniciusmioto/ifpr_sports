@@ -15,7 +15,7 @@ class _ChampionshipsPageState extends State<ChampionshipsPage>
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("COMPETIÇÕES"),
+        title: Text("Competições"),
         leading: Icon(
           Icons.flag,
         ),
