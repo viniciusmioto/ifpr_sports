@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ifsports/components/campeonato-info.dart';
+import 'package:ifsports/pages/team-page.dart';
 
 class ChampionshipsPage extends StatefulWidget {
   @override
@@ -19,6 +20,19 @@ class _ChampionshipsPageState extends State<ChampionshipsPage>
         leading: Icon(
           Icons.flag,
         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.people),
+            onPressed: () {
+              Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => TeamPage(),
+                ),
+              );
+            },
+          )
+        ],
       ),
       body: ListView(
         children: <Widget>[

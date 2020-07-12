@@ -15,6 +15,8 @@ class TeamPage extends StatefulWidget {
 class _TeamPageState extends State<TeamPage> {
   bool _search = false;
   String filter = '';
+  int count = 0;
+
   final _debouncer = Debouncer(milliseconds: 600);
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,7 @@ class _TeamPageState extends State<TeamPage> {
                   _debouncer.run(() {
                     setState(() {
                       filter = value;
+                      count = users.filterCount;
                     });
                   });
                 },
@@ -46,10 +49,8 @@ class _TeamPageState extends State<TeamPage> {
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
-              _debouncer.run(() {
-                setState(() {
-                  _search = !_search;
-                });
+              setState(() {
+                _search = !_search;
               });
             },
           ),
@@ -57,12 +58,13 @@ class _TeamPageState extends State<TeamPage> {
       ),
       body: _search
           ? ListView.builder(
-              itemCount: 1,
+              itemCount: count < 1 ? users.count : count,
               itemBuilder: (ctx, index) =>
                   AtletaTile(users.byIndexFilter(index, filter)))
           : ListView.builder(
               itemCount: users.count,
-              itemBuilder: (ctx, index) => AtletaTile(users.byIndex(index))),
+              itemBuilder: (ctx, index) =>
+                  AtletaTile(users.byIndexFilter(index, filter))),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(

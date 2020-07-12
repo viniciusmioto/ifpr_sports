@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AtletasProvider with ChangeNotifier {
   var _athletas = List<Atleta>();
   var _athletasFilter = List<Atleta>();
+  int filterCount = 0;
   SharedPreferences _prefs;
 
   AtletasProvider() {
@@ -22,11 +23,6 @@ class AtletasProvider with ChangeNotifier {
     return _athletas.length;
   }
 
-  int get countFilter {
-    _loadFromPrefs();
-    return _athletasFilter.length;
-  }
-
   Atleta byIndex(int index) {
     return _athletas.elementAt(index);
   }
@@ -35,6 +31,8 @@ class AtletasProvider with ChangeNotifier {
     _athletasFilter = _athletas
         .where((e) => (e.name.toLowerCase().contains(string.toLowerCase())))
         .toList();
+
+    filterCount = _athletasFilter.length;
 
     return _athletasFilter.isNotEmpty
         ? _athletasFilter.elementAt(index)
