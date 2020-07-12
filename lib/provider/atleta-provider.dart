@@ -35,7 +35,7 @@ class AtletasProvider with ChangeNotifier {
     filterCount = _athletasFilter.length;
     _athletasFilter
         .add(Atleta(avatarUrl: "", modalidade: "", name: "", id: ""));
-    return _athletasFilter.isNotEmpty
+    return filterCount > 1
         ? _athletasFilter.elementAt(index)
         : _athletas.elementAt(index);
   }

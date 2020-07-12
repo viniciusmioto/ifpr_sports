@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ifsports/components/atleta-tile.dart';
-import 'package:ifsports/components/loading.dart';
 import 'package:ifsports/pages/members-page.dart';
 import 'package:ifsports/provider/atleta-provider.dart';
 import 'package:provider/provider.dart';
@@ -59,9 +57,9 @@ class _TeamPageState extends State<TeamPage> {
       ),
       body: _search
           ? ListView.builder(
-              itemCount: count < 1 ? users.count : count,
+              itemCount: count <= 1 ? users.count : count,
               itemBuilder: (ctx, index) =>
-                  AtletaTile(users.byIndexFilter(index, filter)) ?? Loading())
+                  AtletaTile(users.byIndexFilter(index, filter)))
           : ListView.builder(
               itemCount: users.count,
               itemBuilder: (ctx, index) => AtletaTile(users.byIndex(index))),
