@@ -60,11 +60,10 @@ class _TeamPageState extends State<TeamPage> {
           ? ListView.builder(
               itemCount: count < 1 ? users.count : count,
               itemBuilder: (ctx, index) =>
-                  AtletaTile(users.byIndexFilter(index, filter)))
+                  AtletaTile(users?.byIndexFilter(index, filter) ?? ""))
           : ListView.builder(
               itemCount: users.count,
-              itemBuilder: (ctx, index) =>
-                  AtletaTile(users.byIndexFilter(index, filter))),
+              itemBuilder: (ctx, index) => AtletaTile(users.byIndex(index))),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
