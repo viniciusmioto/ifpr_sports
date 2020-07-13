@@ -5,12 +5,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AtletasProvider with ChangeNotifier {
   var _athletas = List<Atleta>();
-  var _athletasFilter = List<Atleta>();
-  int filterCount = 0;
+
   SharedPreferences _prefs;
 
   AtletasProvider() {
     _loadFromPrefs();
+  }
+
+  List<Atleta> get atletas {
+    _loadFromPrefs();
+    return [..._athletas];
   }
 
   Future<List<Atleta>> get all async {
@@ -25,19 +29,6 @@ class AtletasProvider with ChangeNotifier {
 
   Atleta byIndex(int index) {
     return _athletas.elementAt(index);
-  }
-
-  Atleta byIndexFilter(int index, String string) {
-    _athletasFilter = _athletas
-        .where((e) => (e.name.toLowerCase().contains(string.toLowerCase())))
-        .toList();
-
-    filterCount = _athletasFilter.length;
-    _athletasFilter
-        .add(Atleta(avatarUrl: "", modalidade: "", name: "", id: ""));
-    return filterCount > 1
-        ? _athletasFilter.elementAt(index)
-        : _athletas.elementAt(index);
   }
 
   int byAtleta(Atleta atleta) {
