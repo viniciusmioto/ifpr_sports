@@ -128,7 +128,7 @@ class _NewsPageState extends State<NewsPage>
                         ),
                         ListTile(
                           title: Text('VS Mioto'),
-                          subtitle: Text('@vsmioto'),
+                          subtitle: Text('Josimara, Vantuir e Vinícius'),
                           leading: CircleAvatar(
                             backgroundImage: NetworkImage(
                               'https://pbs.twimg.com/profile_images/1285741502849744901/Ok-kIwJV_400x400.jpg',
@@ -146,7 +146,7 @@ class _NewsPageState extends State<NewsPage>
                           ),
                         ),
                       ],
-                      applicationVersion: '1.0.0'),
+                      applicationVersion: '1.0.0 (beta)'),
                 },
               ),
               CustomListTile(Icons.exit_to_app, 'Logout', () async {
