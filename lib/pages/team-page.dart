@@ -57,6 +57,12 @@ class _TeamPageState extends State<TeamPage> {
             : Text('Time'),
         actions: [
           IconButton(
+            icon: Icon(Icons.refresh),
+            onPressed: () {
+              setState(() {});
+            },
+          ),
+          IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
               setState(() {
