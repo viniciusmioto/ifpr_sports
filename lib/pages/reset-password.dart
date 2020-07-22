@@ -42,12 +42,13 @@ class ResetPasswordPage extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Text("Informe o e-mail associado a sua conta, para enviarmos um link de restauração de conta.",
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-            ),
-            textAlign: TextAlign.center,
+            Text(
+              "Informe o e-mail associado a sua conta, para enviarmos um link de restauração de conta.",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+              textAlign: TextAlign.center,
             ),
             SizedBox(
               height: 40,
@@ -71,33 +72,41 @@ class ResetPasswordPage extends StatelessWidget {
             ),
             Container(
               height: 40,
-                alignment: Alignment.centerLeft,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.bottomLeft,
-                    end: Alignment.bottomRight,
-                    stops: [0.3, 1],
-                    colors: [
-                      Colors.greenAccent,
-                      Colors.green,
-                      ],
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(7),
-                  ),
+              alignment: Alignment.centerLeft,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.bottomRight,
+                  stops: [0.3, 1],
+                  colors: [
+                    Colors.greenAccent,
+                    Colors.green,
+                  ],
                 ),
-                child: SizedBox.expand(
-                  child: FlatButton(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text("ENVIAR"),
-                        Icon(Icons.email),
-                      ],
-                    ),
-                    onPressed: () => {},
-                  ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(7),
                 ),
+              ),
+              child: SizedBox.expand(
+                child: FlatButton(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        "ENVIAR",
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                      Icon(
+                        Icons.email,
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                  onPressed: () => {},
+                ),
+              ),
             ),
           ],
         ),
