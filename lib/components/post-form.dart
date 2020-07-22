@@ -28,7 +28,7 @@ class _PostFormState extends State<PostForm> {
           if (snapshot.hasData) {
             UserData userData = snapshot.data;
             return Padding(
-              padding: const EdgeInsets.fromLTRB(20.0, 100.0, 20.0, 250.0),
+              padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20.0, 300.0),
               child: Scaffold(
                 appBar: AppBar(
                   title: Text('Nova Postagem'),

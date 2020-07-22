@@ -16,7 +16,7 @@ class _ProfilePageState extends State<ProfilePage> {
     final user = Provider.of<User>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("PERFIL"),
+        title: Text("Perfil"),
         actions: [
           IconButton(
             icon: Icon(Icons.edit),
@@ -45,7 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: CircleAvatar(
                       radius: 50.0,
                       child: ClipRRect(
-                        borderRadius:BorderRadius.circular(100),
+                        borderRadius: BorderRadius.circular(100),
                         child: Image.network("${snapshot.data.avatarUrl}"),
                       ),
                       backgroundColor: Colors.transparent,

@@ -92,6 +92,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                           style: TextStyle(
                             fontSize: 20,
+                            color: Colors.black,
                           ),
                         ),
                         SizedBox(height: 10),
@@ -161,7 +162,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         SizedBox(height: 10),
                         TextFormField(
-                          initialValue: 'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
+                          initialValue:
+                              'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
                           autofocus: false,
                           onChanged: (value) {
                             setState(() => avatarUrl = value);
@@ -203,8 +205,11 @@ class _SignUpPageState extends State<SignUpPage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
-                                  Text("CADASTRAR"),
-                                  Icon(Icons.add_circle),
+                                  Text(
+                                    "CADASTRAR",
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                  Icon(Icons.add_circle, color: Colors.black),
                                 ],
                               ),
                               onPressed: () async {

@@ -42,7 +42,7 @@ class _NewsPageState extends State<NewsPage>
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            'SportIF',
+            'Sportif',
             style: TextStyle(
               color: Colors.white,
             ),
@@ -121,40 +121,32 @@ class _NewsPageState extends State<NewsPage>
                         height: 40,
                         child: Image.asset('assets/logo.png'),
                       ),
-                      applicationName: 'SportIF',
+                      applicationName: 'Sportif',
                       children: [
                         Text(
-                          'Resposáveis:',
+                          'Responsáveis:',
                         ),
                         ListTile(
-                          title: Text('Josimara Moreira'),
-                          subtitle: Text('IFPR'),
+                          title: Text('VS Mioto'),
+                          subtitle: Text('@vsmioto'),
                           leading: CircleAvatar(
                             backgroundImage: NetworkImage(
-                              'https://scontent.fbfh8-1.fna.fbcdn.net/v/t1.0-1/p160x160/87069033_2919716804754337_8236447801307824128_o.jpg?_nc_cat=108&_nc_sid=dbb9e7&_nc_ohc=gaoEOdyk4VkAX9Vfunl&_nc_ht=scontent.fbfh8-1.fna&_nc_tp=6&oh=ff8fe3815d3ddff5d0ea36e7c54fef38&oe=5F24BC5B',
+                              'https://pbs.twimg.com/profile_images/1285741502849744901/Ok-kIwJV_400x400.jpg',
                             ),
                           ),
                         ),
                         ListTile(
-                          title: Text('Vantuir Mioto'),
-                          subtitle: Text('IFPR'),
+                          title: Text('IFPR'),
+                          subtitle: Text('Campus Colombo'),
                           leading: CircleAvatar(
                             backgroundImage: NetworkImage(
-                              'https://lh3.googleusercontent.com/a-/AOh14Gje3OAWJVNS22i4mpIsh0Xc2bfNsOFmQoqcAcODlg=s80-p-k-rw-no',
+                              'https://media-exp1.licdn.com/dms/image/C4D0BAQF6OET0cbhmEA/company-logo_200_200/0?e=2159024400&v=beta&t=drxGIuRWVRH0crTRkg846OJ_iOhLLy_r_FZgHr5VGSo',
                             ),
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('Vinícius Mioto'),
-                          subtitle: Text('UFPR'),
-                          leading: CircleAvatar(
-                            backgroundImage: NetworkImage(
-                              'https://media-exp1.licdn.com/dms/image/C4E03AQFdc-V_PxeFow/profile-displayphoto-shrink_200_200/0?e=1599091200&v=beta&t=ckcWMu0GRkJtgiCtUY4e2A45zKi5wvpNst0MphWKULU',
-                            ),
+                            backgroundColor: Colors.black,
                           ),
                         ),
                       ],
-                      applicationVersion: '1.5.8'),
+                      applicationVersion: '1.0.0'),
                 },
               ),
               CustomListTile(Icons.exit_to_app, 'Logout', () async {
